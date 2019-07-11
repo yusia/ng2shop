@@ -2,7 +2,8 @@ export const products = [
   {
     name: 'American Shorthair Cat',
     price: 799,
-    description: 'American Shorthair Cat'
+    description: 'American Shorthair Cat',
+    category:'medium'
   },
   {
     name: 'Russian Blue Cat Breed',
