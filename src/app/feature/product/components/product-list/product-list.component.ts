@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
 import { ProductService } from '../../services/products.service';
 
@@ -6,16 +6,19 @@ import { ProductService } from '../../services/products.service';
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
-  providers:[ProductService]
+  providers: [ProductService]
 })
-export class ProductListComponent  implements OnInit {
-  products:ProductModel[];
-  constructor(private _productsService:ProductService) { 
-    
-     }
+export class ProductListComponent implements OnInit {
+  @Output() buyProd: EventEmitter<any> = new EventEmitter();
+
+  products: ProductModel[];
+  constructor(private productsService: ProductService) { }
 
   ngOnInit() {
-   this.products=this._productsService.getProducts();    
+    this.products = this.productsService.getProducts();
   }
 
+  onBuy(prod: ProductModel): void {
+    this.buyProd.emit(prod);
+  }
 }

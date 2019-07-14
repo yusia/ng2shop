@@ -1,8 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="button fancy-batton" (click)="onBuy()">Buy</button>
+  <app-cart *ngIf="prodInCarCount; else elseBlock"></app-cart>
+  <ng-template #elseBlock>
+    <button class="btn btn-secondary " type="button">
+      Cart empty
+    </button>
+  </ng-template>
+
 </nav>
 
-<div >
-  <app-product-list></app-product-list>
-</div>
+<div>
+  <app-product-list (buyProd)="onBuy($event)"></app-product-list>
 
+</div>

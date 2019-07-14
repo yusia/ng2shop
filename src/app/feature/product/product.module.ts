@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductService } from './services/products.service';
@@ -6,9 +6,9 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
-  imports:[CommonModule],    
-  declarations: [ProductComponent,ProductListComponent],
+  imports: [CommonModule],
+  declarations: [ProductComponent, ProductListComponent],
   providers: [ProductService],
-  exports: [ProductComponent,ProductListComponent]
+  exports: [ProductComponent, ProductListComponent]
 })
-export class ProductModule{}
+export class ProductModule { }

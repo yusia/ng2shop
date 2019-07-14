@@ -1,1 +1,6 @@
-<app-product *ngFor="let product of products" [product]="product"></app-product>
+<div *ngFor="let product of products" class="card text-white bg-primary mb-3 float" style="max-width: 20rem;">
+    <app-product [product]="product"></app-product>
+    <div class="card-footer text-muted">
+        <a href="#" class="btn btn-primary" (click)="onBuy(product)">Buy</a>
+    </div>
+</div>

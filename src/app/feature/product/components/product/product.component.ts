@@ -7,10 +7,8 @@ import { ProductModel } from '../../models/product.model';
   providers: []
 })
 export class ProductComponent implements OnInit {
-  @Input() product:ProductModel;
-  constructor() { 
-
-   }
+  @Input() product: ProductModel;
+  constructor() {  }
 
   ngOnInit() {
     console.log(this.product);

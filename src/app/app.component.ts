@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProductModel } from './feature/product/models/product.model';
+import { CartService } from './feature/cart/services/cart.service';
 
 
 @Component({
@@ -7,8 +9,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  prodInCarCount = 0;
   title = 'Friends shop';
-  onBuy(){
-    console.log("buy")
+
+  constructor(private cartService: CartService) {
+  }
+
+  onBuy(prod: ProductModel): void {
+    this.cartService.buy(prod);
+    this.prodInCarCount = this.cartService.products.length;
+    console.log('buy');
   }
 }
