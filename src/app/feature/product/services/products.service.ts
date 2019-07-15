@@ -5,7 +5,7 @@ import { ProductModule } from '../product.module';
 
 @Injectable()
 export class ProductService {
-    private products;
+    private products; // Почему не Array<ProductModel>? или убрать?
     constructor() {
     }
 

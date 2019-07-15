@@ -21,3 +21,5 @@ export const products = [
     description: ''
   }
 ];
+// не место этому файлу в корне приложяни.
+// => feature/product/mock/
