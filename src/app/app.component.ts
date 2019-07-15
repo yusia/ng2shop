@@ -17,6 +17,7 @@ export class AppComponent {
 
   onBuy(prod: ProductModel): void {
     this.cartService.buy(prod);
+    // this.cartService.products.length - лучше каким-то коротким гетером оформить
     this.prodInCarCount = this.cartService.products.length;
     console.log('buy');
   }
