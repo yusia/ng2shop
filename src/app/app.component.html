@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <app-cart *ngIf="prodInCarCount; else elseBlock"></app-cart>
+  <app-cart-list *ngIf="prodInCarCount; else elseBlock"></app-cart-list>
   <ng-template #elseBlock>
     <button class="btn btn-secondary " type="button">
       Cart empty

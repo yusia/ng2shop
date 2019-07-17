@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
-import { ProductModel } from '../../product/models/product.model';
-
+import { CartService } from '../../services/cart.service';
+import { ProductModel } from '../../../product/models/product.model';
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html'
+  selector: 'app-cart-list',
+  templateUrl: './cart-list.component.html',
+  styleUrls: ['./cart-list.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartListComponent implements OnInit {
   prodInCart: Array<ProductModel>;
   constructor(private cartService: CartService) {
   }
@@ -19,4 +19,5 @@ export class CartComponent implements OnInit {
   onRemove() {
     this.cartService.clean();
   }
+
 }

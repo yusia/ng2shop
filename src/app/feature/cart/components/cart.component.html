@@ -1,9 +1,0 @@
-<div>
-  <button class="btn btn-primary" type="button">
-    CheckOut <span class="badge badge-light">{{prodInCart.length}}</span>
-  </button>
-  <ul>
-    <li *ngFor="let product of prodInCart" class="dropdown-item" href="#">{{product.name}}</li>
-    <li class="btn btn-primary " (click)="onRemove()">Clean</li>
-  </ul>
-</div>

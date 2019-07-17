@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductModule } from './feature/product/product.module';
-import { CartComponent } from './feature/cart/components/cart.component';
 import { CartModule } from './feature/cart/cart.module';
 
 @NgModule({

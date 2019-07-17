@@ -14,19 +14,19 @@ export class ProductService {
             new ProductModel('American Shorthair Cat',
                 'American Shorthair Cat',
                 799,
-                Size.medium, true),
+                Size.medium, 1),
             new ProductModel('Russian Blue Cat Breed',
                 'The Russian Blue is gentle, quiet and even shy around strangers; She’s tolerant of children and other cat-friendly pets.',
                 699,
-                Size.large, true),
+                Size.large, 2),
             new ProductModel('American Shorthair Cat3',
                 'American Shorthair Cat23',
                 799,
-                Size.medium, true),
+                Size.medium, 3),
             new ProductModel('American Shorthair Cat2',
                 'American Shorthair Cat32',
                 799,
-                Size.medium, true),
+                Size.medium, 0),
         ];
     }
 }

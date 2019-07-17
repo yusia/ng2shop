@@ -7,8 +7,19 @@ export class CartService {
 
     buy(prod: ProductModel): void {
         this.products.push(prod);
+        prod.count--;
     }
+
     clean(): void {
         this.products.length = 0;
+    }
+
+    getTotalSum():number{
+        const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+        return this.products.reduce(reducer,0);
+    }
+    
+    getCountByProd(prod:ProductModel):number{       
+        return this.products.filter(p=>p.name==prod.name).length;
     }
 }

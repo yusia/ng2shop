@@ -14,4 +14,12 @@ data from product service
 output to productList
 cart service (can add, clean products)
 ### added
- cart component to app module
+ cart component to cart module
+
+ ##[ 2.0.0]
+ ### added
+ cart-list component to cart module
+ ### modified
+ -cartService: added new methods
+ -added ngClass - disabled class when product isn't available
+ -cart->cartItem - only representaion component
