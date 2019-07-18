@@ -2,7 +2,13 @@
   <button class="btn btn-primary" type="button">
     CheckOut <span class="badge badge-light">{{prodInCart.length}}</span>
   </button>
-  <app-cart-item  class="dropdown-item" *ngFor="let product of prodInCart" [item]="product"></app-cart-item>
+  <div *ngFor="let product of prodInCart"> 
+    <app-cart-item  [item]="product"></app-cart-item>
+    <button type="button" class="close" aria-label="Close" (click)="onRemove(product)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
   <span>Total: </span>
-  <button class="btn btn-primary " (click)="onRemove()" >Clean</button>
+  <button class="btn btn-primary " (click)="onClean()" >Clean</button>
 </div>

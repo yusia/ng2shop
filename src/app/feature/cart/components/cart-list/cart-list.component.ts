@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../../shared/services/cart.service';
 import { ProductModel } from '../../../product/models/product.model';
 @Component({
   selector: 'app-cart-list',
@@ -16,8 +16,10 @@ export class CartListComponent implements OnInit {
     console.log(this.prodInCart.length > 0);
   }
 
-  onRemove() {
+  onRemove(prod:ProductModel):void {
+    this.cartService.remove(prod);
+  }
+  onClean():void {
     this.cartService.clean();
   }
-
 }

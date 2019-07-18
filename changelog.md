@@ -23,3 +23,4 @@ cart service (can add, clean products)
  -cartService: added new methods
  -added ngClass - disabled class when product isn't available
  -cart->cartItem - only representaion component
+ -added appTitle

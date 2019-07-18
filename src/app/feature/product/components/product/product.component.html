@@ -1,6 +1,5 @@
-
-  <div class="card-header">Cat friend</div>
+  <div class="card-header">Cat friend <span class="float-right">In Stock: {{product.isAvailable? 'yes':'no'}}</span></div>
   <div class="card-body">
     <h4 class="card-title">{{ product.name }}</h4>
-    <p class="card-text"  *ngIf="product.description">{{product.description}}</p>
+    <p class="card-text"  *ngIf="product.description">{{product.description}}</p> 
   </div>

@@ -1,7 +1,8 @@
 import { ProductModel } from '../../product/models/product.model';
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable(
+)
 export class CartService {
     products: ProductModel[] = [];
 
@@ -10,6 +11,11 @@ export class CartService {
         prod.count--;
     }
 
+    remove(prod: ProductModel): void {
+        this.products= this.products.filter(p=>p!=prod);
+        prod.count++;
+    }
+    
     clean(): void {
         this.products.length = 0;
     }

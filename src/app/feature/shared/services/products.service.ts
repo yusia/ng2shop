@@ -1,7 +1,7 @@
-import { ProductModel } from '../models/product.model';
+import { ProductModel } from '../../product/models/product.model';
 import { Injectable } from '@angular/core';
-import { Size } from '../models/Size.enum';
-import { ProductModule } from '../product.module';
+import { Size } from '../../product/models/Size.enum';
+import { ProductModule } from '../../product/product.module';
 
 @Injectable()
 export class ProductService {
