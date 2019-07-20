@@ -24,3 +24,4 @@ cart service (can add, clean products)
  -added ngClass - disabled class when product isn't available
  -cart->cartItem - only representaion component
  -added appTitle
+ - added directive for changing color -coolBackground

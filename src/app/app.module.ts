@@ -13,7 +13,7 @@ import { CartModule } from './feature/cart/cart.module';
     BrowserModule,
     AppRoutingModule,
     ProductModule,
-    CartModule
+    CartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
