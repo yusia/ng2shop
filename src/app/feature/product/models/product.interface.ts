@@ -5,6 +5,4 @@ export interface IProduct {
      description: string;
      price: number;
      category?: Size;
-     isAvailable?: boolean;
-
 }

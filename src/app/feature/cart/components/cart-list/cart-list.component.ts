@@ -1,25 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { CartService } from '../../../shared/services/cart.service';
-import { ProductModel } from '../../../product/models/product.model';
+import { CartModel } from '../../models/cart.model';
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.css']
 })
-export class CartListComponent implements OnInit {
-  prodInCart: Array<ProductModel>;
-  constructor(private cartService: CartService) {
+export class CartListComponent implements OnInit, DoCheck  {
+  prodInCart: Array<CartModel>;
+  total:number;
+  count:number;
+  constructor(public cartService: CartService) {
+  }
+  ngDoCheck(){
+    this.count=this.cartService.getCount();
+    this.total=this.cartService.getTotalSum();
   }
 
   ngOnInit() {
     this.prodInCart = this.cartService.products;
-    console.log(this.prodInCart.length > 0);
+    this.total=this.cartService.getTotalSum();
   }
 
-  onRemove(prod:ProductModel):void {
+  onRemove(prod:CartModel):void {
     this.cartService.remove(prod);
   }
-  onClean():void {
-    this.cartService.clean();
+  onIncrease(prod:CartModel){
+   
+    prod.count++;
+  }
+  onDecrease(prod:CartModel){
+    if(prod.count>0){
+      prod.count--;
+    }
   }
 }

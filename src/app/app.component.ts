@@ -14,8 +14,8 @@ export class AppComponent  implements AfterViewInit {
   @ViewChild('appTitle') appTitle:ElementRef;
 
    constructor(private cartService: CartService) {
-
-     }
+     
+        }
 
   ngAfterViewInit() {
     this.appTitle.nativeElement.innerHTML = "Friend!";

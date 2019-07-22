@@ -1,14 +1,16 @@
 <div>
   <button class="btn btn-primary" type="button">
-    CheckOut <span class="badge badge-light">{{prodInCart.length}}</span>
+    CheckOut <span class="badge badge-light">{{count}}</span>
   </button>
   <div *ngFor="let product of prodInCart"> 
-    <app-cart-item  [item]="product"></app-cart-item>
+    <app-cart-item  [item]="product"></app-cart-item>    
+  <button class="btn btn-primary" type="button" (click)="onDecrease(product)"></button>
+  {{product.count}}
+  <button class="btn btn-primary" type="button" (click)="onIncrease(product)"></button>
     <button type="button" class="close" aria-label="Close" (click)="onRemove(product)">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   
-  <span>Total: </span>
-  <button class="btn btn-primary " (click)="onClean()" >Clean</button>
+  <span>Total:{{total}} </span>
 </div>

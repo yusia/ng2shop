@@ -1,31 +1,57 @@
 import { ProductModel } from '../../product/models/product.model';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { CartModel } from '../../cart/models/cart.model';
+import { ProductService } from './products.service';
 
 @Injectable(
 )
-export class CartService {
-    products: ProductModel[] = [];
+export class CartService implements OnInit{
+    
+    products: CartModel[] = [];
+    private availableProducts:Array<ProductModel>;
+    constructor(private prodServ:ProductService){
 
-    buy(prod: ProductModel): void {
-        this.products.push(prod);
-        prod.count--;
+    }
+    ngOnInit(): void {
+        this.availableProducts =   this.prodServ.getProducts();
     }
 
-    remove(prod: ProductModel): void {
-        this.products= this.products.filter(p=>p!=prod);
-        prod.count++;
+    buy(prod: ProductModel): void {   
+        prod.count--;
+        let prodInCart = this.products.find(p=>p.name==prod.name);
+        if( prodInCart){ 
+            prodInCart.count++;       
+        }   
+         else{
+            let cartItem={...prod,count:1};
+            this.products.push(cartItem);
+            }
+    }
+
+    remove(prod: CartModel): void {
+        const index: number = this.products.indexOf(prod);
+        if (index !== -1) {
+            this.products.splice(index, 1);
+            let availableProd = this.availableProducts.find(p=>p.name==prod.name);
+            availableProd.count+=prod.count;
+         }      
     }
     
     clean(): void {
-        this.products.length = 0;
+        while(this.products.length>0){
+            this.products.forEach(element => {
+                this.remove( element); 
+            });
+        }
     }
 
     getTotalSum():number{
-        const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+        const reducer = (accumulator, currentValue) => accumulator + currentValue.price*currentValue.count;
         return this.products.reduce(reducer,0);
     }
     
-    getCountByProd(prod:ProductModel):number{       
-        return this.products.filter(p=>p.name==prod.name).length;
+    getCount():number{      
+        const reducer = (accumulator, currentValue) => accumulator + currentValue.count;
+        return this.products.reduce(reducer,0); 
     }
 }

@@ -25,3 +25,6 @@ cart service (can add, clean products)
  -cart->cartItem - only representaion component
  -added appTitle
  - added directive for changing color -coolBackground
+ ###
+ -added CartModel
+ -changed total/ count
