@@ -7,7 +7,7 @@ import {
   selector: '[appCool]'
 })
 export class CoolDirective {
-  private _oldColor: string;
+  private _oldColor: string; // похоже не используется?
   constructor() { }
   @HostBinding('style.background-color') color: string;
   @HostListener('mouseenter') newColor() {

@@ -6,7 +6,7 @@ import { ProductService } from './products.service';
 @Injectable(
 )
 export class CartService implements OnInit{
-    
+
     products: CartModel[] = [];
     private availableProducts:Array<ProductModel>;
     constructor(private prodServ:ProductService){
@@ -16,12 +16,12 @@ export class CartService implements OnInit{
         this.availableProducts =   this.prodServ.getProducts();
     }
 
-    buy(prod: ProductModel): void {   
-        prod.count--;
+    buy(prod: ProductModel): void {
+        prod.count--; // в минус не уйдет?
         let prodInCart = this.products.find(p=>p.name==prod.name);
-        if( prodInCart){ 
-            prodInCart.count++;       
-        }   
+        if( prodInCart){
+            prodInCart.count++;
+        }
          else{
             let cartItem={...prod,count:1};
             this.products.push(cartItem);
@@ -34,13 +34,13 @@ export class CartService implements OnInit{
             this.products.splice(index, 1);
             let availableProd = this.availableProducts.find(p=>p.name==prod.name);
             availableProd.count+=prod.count;
-         }      
+         }
     }
-    
+
     clean(): void {
         while(this.products.length>0){
             this.products.forEach(element => {
-                this.remove( element); 
+                this.remove( element);
             });
         }
     }
@@ -49,9 +49,9 @@ export class CartService implements OnInit{
         const reducer = (accumulator, currentValue) => accumulator + currentValue.price*currentValue.count;
         return this.products.reduce(reducer,0);
     }
-    
-    getCount():number{      
+
+    getCount():number{
         const reducer = (accumulator, currentValue) => accumulator + currentValue.count;
-        return this.products.reduce(reducer,0); 
+        return this.products.reduce(reducer,0);
     }
 }
