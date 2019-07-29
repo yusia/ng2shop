@@ -8,29 +8,29 @@ import { CartModel } from '../../models/cart.model';
 })
 export class CartListComponent implements OnInit, DoCheck  {
   prodInCart: Array<CartModel>;
-  total:number;
-  count:number;
+  total: number;
+  count: number;
   constructor(public cartService: CartService) {
   }
-  ngDoCheck(){
-    this.count=this.cartService.getCount();
-    this.total=this.cartService.getTotalSum();
+  ngDoCheck() {
+    this.count = this.cartService.getCount();
+    this.total = this.cartService.getTotalSum();
   }
 
   ngOnInit() {
     this.prodInCart = this.cartService.products;
-    this.total=this.cartService.getTotalSum();
+    this.total = this.cartService.getTotalSum();
   }
 
-  onRemove(prod:CartModel):void {
+  onRemove(prod: CartModel): void {
     this.cartService.remove(prod);
   }
-  onIncrease(prod:CartModel){
-   
+  onIncrease(prod: CartModel) {
+
     prod.count++;
   }
-  onDecrease(prod:CartModel){
-    if(prod.count>0){
+  onDecrease(prod: CartModel) {
+    if (prod.count > 0) {
       prod.count--;
     }
   }

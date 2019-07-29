@@ -9,20 +9,21 @@ import { CartService } from './feature/shared/services/cart.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements AfterViewInit {
-  prodInCarCount = 0; 
 
-  @ViewChild('appTitle') appTitle:ElementRef;
+  @ViewChild('appTitle') appTitle: ElementRef;
 
    constructor(private cartService: CartService) {
-     
         }
 
   ngAfterViewInit() {
-    this.appTitle.nativeElement.innerHTML = "Friend!";
+    this.appTitle.nativeElement.innerHTML = 'Friend!';
   }
   onBuy(prod: ProductModel): void {
     this.cartService.buy(prod);
-    this.prodInCarCount = this.cartService.products.length;
     console.log('buy');
+  }
+
+  get prodInCarCount() {
+    return this.cartService.products.length;
   }
 }

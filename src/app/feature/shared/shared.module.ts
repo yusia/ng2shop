@@ -5,7 +5,7 @@ import { CoolDirective } from './background/cool.directive';
   declarations: [
     CoolDirective
   ],
-  exports:[
+  exports: [
     CoolDirective
   ],
 })

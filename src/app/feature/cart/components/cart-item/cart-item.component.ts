@@ -6,8 +6,8 @@ import { CartModel } from '../../models/cart.model';
   templateUrl: './cart-item.component.html'
 })
 export class CartItemComponent implements OnInit {
-  @Input() item:CartModel;
-  ngOnInit(): void {   
+  @Input() item: CartModel;
+  ngOnInit(): void {
   }
 
 }

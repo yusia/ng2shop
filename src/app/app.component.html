@@ -1,15 +1,14 @@
 <h1 #appTitle></h1> 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<div style="float:left;width: 60%">
+  <app-product-list (buyProd)="onBuy($event)"></app-product-list>
+</div>
+<div class="navbar navbar-expand-lg navbar-light bg-light">
   <app-cart-list *ngIf="prodInCarCount>0; else elseBlock"></app-cart-list>
   <ng-template #elseBlock>
     <button class="btn btn-secondary " type="button">
       Cart empty
     </button>
   </ng-template>
-
-</nav>
-
-<div>
-  <app-product-list (buyProd)="onBuy($event)"></app-product-list>
-
 </div>
+

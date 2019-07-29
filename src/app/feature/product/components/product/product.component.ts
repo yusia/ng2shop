@@ -5,12 +5,12 @@ import { ProductModel } from '../../models/product.model';
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
-  //changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   providers: []
 })
 export class ProductComponent implements OnInit {
   @Input() product: ProductModel;
-  
+
   constructor() {  }
 
   ngOnInit() {

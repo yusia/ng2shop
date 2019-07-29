@@ -16,7 +16,7 @@ cart service (can add, clean products)
 ### added
  cart component to cart module
 
- ##[ 2.0.0]
+ ##[2.0.0]
  ### added
  cart-list component to cart module
  ### modified
@@ -28,3 +28,7 @@ cart service (can add, clean products)
  ###
  -added CartModel
  -changed total/ count
+ ###[2.0.1]
+ - fixed comments task 1: added getter for count
+ ###[3.0.0]
+ - added services
