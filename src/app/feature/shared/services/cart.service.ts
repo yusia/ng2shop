@@ -8,12 +8,12 @@ import { ProductService } from './products.service';
 export class CartService implements OnInit {
 
     products: CartModel[] = [];
-    private availableProducts: Array<ProductModel>;
+    private availableProducts: Promise<Array<ProductModel>>;
     constructor(private prodServ: ProductService) {
 
     }
-    ngOnInit(): void {
-        this.availableProducts =   this.prodServ.getProducts();
+    ngOnInit() {
+      this.availableProducts = this.prodServ.getProducts();
     }
 
     buy(prod: ProductModel): void {
@@ -27,11 +27,11 @@ export class CartService implements OnInit {
             }
     }
 
-    remove(prod: CartModel): void {
+    async remove(prod: CartModel) {
         const index: number = this.products.indexOf(prod);
         if (index !== -1) {
             this.products.splice(index, 1);
-            const availableProd = this.availableProducts.find(p => p.name === prod.name);
+            const availableProd = (await this.availableProducts).find(p => p.name === prod.name);
             availableProd.count += prod.count;
          }
     }

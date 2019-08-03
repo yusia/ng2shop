@@ -1,8 +1,8 @@
 export enum Size {
-    extraSmall,
-    small,
-    medium,
-    large,
-    extraLarge,
-    unknown
+    extraSmall="extraSmall",
+    small="small",
+    medium="medium",
+    large="large",
+    extraLarge="extraLarge",
+    unknown="unknown"
 }

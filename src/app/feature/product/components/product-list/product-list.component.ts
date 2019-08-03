@@ -12,7 +12,7 @@ import { ProductService } from '../../../shared/services/products.service';
 export class ProductListComponent implements OnInit {
   @Output() buyProd: EventEmitter<any> = new EventEmitter();
 
-  products: ProductModel[];
+  products:Promise<Array<ProductModel>>
   constructor(private productsService: ProductService) { }
 
   ngOnInit() {

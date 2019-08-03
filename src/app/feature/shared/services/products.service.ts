@@ -8,8 +8,8 @@ export class ProductService {
     constructor() {
     }
 
-    getProducts(): Array<ProductModel> {
-        return [
+    getProducts():Promise<Array<ProductModel>> { 
+        let products= [
             new ProductModel('American Shorthair Cat',
                 'American Shorthair Cat',
                 799,
@@ -27,5 +27,7 @@ export class ProductService {
                 799,
                 Size.medium, 0),
         ];
+
+        return Promise.resolve(products);
     }
 }

@@ -31,12 +31,11 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit() {
-    const lastVisitDate = this.myStorage.getItem('lastVisitDate');
+    const lastVisitDate = this.myStorage.getItem('lastVisitDate') as Date;
     if (lastVisitDate === null) {
       this.myStorage.setItem('lastVisitDate', Date.now());
     }
-    this.lastVisit = Date(lastVisitDate);
-
+    this.lastVisit = new Date(lastVisitDate);
   }
 
 }

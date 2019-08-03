@@ -2,5 +2,5 @@
   <div>Name: {{name}}</div>
   <div>{{aboutSrv.App}} {{aboutSrv.Ver}}</div>
   <div>Shop registration number {{shopUniqNumber}} </div>
-  <div>Last visit: {{lastVisit===null? 'It is the first visit': lastVisit}}</div>
+  <div>Last visit: {{lastVisit===null? 'It is the first visit': lastVisit | date:'medium'}}</div>
 </div>
