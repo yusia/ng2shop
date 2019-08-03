@@ -4,15 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigOptionsService {
- private _tempConfigStorage:any;
+ private tempConfigStorage: any;
   constructor() { }
-  setConfig(...configOptions):void{
-    for (var key in configOptions) {
-      this._tempConfigStorage[key]=configOptions[key];
+  setConfig(...configOptions): void {
+    for (const key in configOptions) {
+
+           this.tempConfigStorage[key] = configOptions[key];
     }
   }
 
-  getConfig():any {
-      return this._tempConfigStorage;
+  getConfig(): any {
+      return this.tempConfigStorage;
   }
 }

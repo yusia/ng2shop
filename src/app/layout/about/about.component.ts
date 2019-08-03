@@ -24,18 +24,18 @@ const AboutShopStorageValue = new ConstantsService();
 export class AboutComponent implements OnInit {
   lastVisit: any;
   constructor(@Inject(NAME) public name: string,
-    private aboutSrv: ConstantsService,
-    @Optional() private confg: ConfigOptionsService,
-    @Inject(String64) public shopUniqNumber: string,
-    @Optional() private myStorage: LocalStorageService) {
+              private aboutSrv: ConstantsService,
+              @Optional() private confg: ConfigOptionsService,
+              @Inject(String64) public shopUniqNumber: string,
+              @Optional() private myStorage: LocalStorageService) {
   }
 
   ngOnInit() {
-    let lastVisitDate=this.myStorage.getItem("lastVisitDate");
-    if(lastVisitDate===null){
-      this.myStorage.setItem("lastVisitDate",Date.now());
+    const lastVisitDate = this.myStorage.getItem('lastVisitDate');
+    if (lastVisitDate === null) {
+      this.myStorage.setItem('lastVisitDate', Date.now());
     }
-    this.lastVisit=Date(lastVisitDate); 
+    this.lastVisit = Date(lastVisitDate);
 
   }
 

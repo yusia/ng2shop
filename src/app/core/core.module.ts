@@ -16,7 +16,7 @@ const AboutShopStorage = new ConstantsService();
     { provide: AboutShopStorage, useValue: AboutShopStorage },
     { provide: LocalStorageService, useExisting: window.localStorage },
     { provide: ConfigOptionsService, useClass: ConfigOptionsService },
-    { provide: NAME, useValue: 'Friends shop' },// literal registration
+    { provide: NAME, useValue: 'Friends shop' }, // literal registration
     { provide: String64, useFactory: GeneratorFactory(64), deps: [GeneratorService] }
   ],
   imports: [

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConstantsService {
-  App: string = "TaskManager";
-  Ver: string = "1.0";
+  App = 'TaskManager';
+  Ver = '1.0';
   constructor() { }
 }

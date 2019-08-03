@@ -10,9 +10,11 @@ export class WaySizeDirective {
 
   @HostListener('click')
   onClick() {
-    this.upSize(this.size || '14');
+    this.upSize(this.size || '30');
   }
-  private upSize(size: string) {
-    this.render.setStyle(this.el.nativeElement, 'size', size);
+
+  private upSize(size: string): void {
+    this.render.setStyle(this.el.nativeElement, 'font-size', size + 'px');
+    this.render.setStyle(this.el.nativeElement, 'border', ' 4px double black');
   }
 }

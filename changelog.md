@@ -32,3 +32,4 @@ cart service (can add, clean products)
  - fixed comments task 1: added getter for count
  ###[3.0.0]
  - added services
+ - added directive waysize-click by small in footer text make them bigger 

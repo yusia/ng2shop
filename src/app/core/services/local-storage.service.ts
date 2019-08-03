@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable(    )
-export class LocalStorageService{
+export class LocalStorageService {
 
     setItem(key: string, data: any): void {
         try {
@@ -10,7 +10,7 @@ export class LocalStorageService{
           console.error('Error saving to localStorage', e);
         }
       }
-    
+
       getItem(key: string) {
         try {
           return JSON.parse(localStorage.getItem(key));
@@ -19,10 +19,10 @@ export class LocalStorageService{
           return null;
         }
       }
-      
+
       removeItem(key: string) {
-        if(this.getItem(key)){
+        if (this.getItem(key)) {
             localStorage.removeItem(key);
-        };
+        }
       }
 }
