@@ -5,8 +5,10 @@ import { CartService } from '../shared/services/cart.service';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartModel } from './models/cart.model';
 
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  imports: [CommonModule ],
+  imports: [CommonModule ,FormsModule],
+  
   declarations: [
     CartItemComponent,
     CartListComponent],

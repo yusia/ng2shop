@@ -13,4 +13,10 @@
   </div>
   
   <span>Total:{{total |currency:locale}} </span>
+  <select name="sotringOptions"  [ngModel]="sortOption"  (change)=onChange($event)>
+      <option value="" disabled>Choose sorting</option>
+      <option *ngFor="let opt of sotringOptions" [ngValue]="opt">
+        {{ opt }}
+      </option>
+    </select>
 </div>
