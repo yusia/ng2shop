@@ -12,14 +12,15 @@ import { WaySizeDirective } from './shared/directives/waySize.directive';
   declarations: [
     AppComponent,
     AboutComponent,
-    WaySizeDirective
+    WaySizeDirective    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ProductModule,
     CartModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
