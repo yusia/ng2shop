@@ -1,15 +1,19 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { CartService } from '../../../shared/services/cart.service';
 import { CartModel } from '../../models/cart.model';
+
+
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
-  styleUrls: ['./cart-list.component.css']
+  styleUrls: ['./cart-list.component.css'],
 })
 export class CartListComponent implements OnInit, DoCheck  {
   prodInCart: Array<CartModel>;
   total: number;
   count: number;
+  sortOption:string;
+  sotringOptions: Array<string>
   constructor(public cartService: CartService) {
   }
   ngDoCheck() {
@@ -20,8 +24,12 @@ export class CartListComponent implements OnInit, DoCheck  {
   ngOnInit() {
     this.prodInCart = this.cartService.products;
     this.total = this.cartService.getTotalSum();
+    this.sotringOptions=["By name","by decription"]
   }
 
+  onChange(deviceValue) {
+    console.log(this.sortOption);
+}
   onRemove(prod: CartModel): void {
     this.cartService.remove(prod);
   }
