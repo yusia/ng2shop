@@ -33,3 +33,7 @@ cart service (can add, clean products)
  ###[3.0.0]
  - added services
  - added directive waysize-click by small in footer text make them bigger 
+###[4.0.0] pipes
+-currency for price, uppercase for category
+- async for getting products 
+- orderPipe in cart

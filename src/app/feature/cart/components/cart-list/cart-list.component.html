@@ -2,7 +2,7 @@
   <button class="btn btn-primary" type="button">
     CheckOut <span class="badge badge-light">{{count}}</span>
   </button>
-  <div *ngFor="let product of prodInCart"> 
+  <div *ngFor="let product of prodInCart | orderBy: sortOption"> 
     <app-cart-item  [item]="product"></app-cart-item>    
   <button class="btn btn-primary" type="button" (click)="onDecrease(product)"></button>
   {{product.count}}
@@ -13,7 +13,7 @@
   </div>
   
   <span>Total:{{total |currency:locale}} </span>
-  <select name="sotringOptions"  [ngModel]="sortOption"  (change)=onChange($event)>
+  <select name="sotringOptions"  [(ngModel)]="sortOption"  (change)=onChange($event,sortOption)>
       <option value="" disabled>Choose sorting</option>
       <option *ngFor="let opt of sotringOptions" [ngValue]="opt">
         {{ opt }}

@@ -7,12 +7,13 @@ import { CartModule } from './feature/cart/cart.module';
 import { AboutComponent } from './layout/about/about.component';
 import { CoreModule } from './core/core.module';
 import { WaySizeDirective } from './shared/directives/waySize.directive';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    WaySizeDirective    
+    WaySizeDirective
   ],
   imports: [
     BrowserModule,

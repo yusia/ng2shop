@@ -1,7 +1,8 @@
 import { NgModule, InjectionToken } from '@angular/core';
-import { LocalStorageService } from './services/local-storage.service';
-import { ConfigOptionsService } from './services/config-options.service';
-import { ConstantsService } from './services/constants.service';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { ConfigOptionsService } from 'src/app/core/services/config-options.service';
+import { ConstantsService } from 'src/app/core/services/constants.service';
+import { GeneratorService } from 'src/app/core/services/generator.service';
 
 const NAME = new InjectionToken<string[]>('token');
 

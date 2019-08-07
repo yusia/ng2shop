@@ -6,9 +6,10 @@ import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartModel } from './models/cart.model';
 
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 @NgModule({
-  imports: [CommonModule ,FormsModule],
-  
+  imports: [CommonModule , FormsModule, SharedModule],
+
   declarations: [
     CartItemComponent,
     CartListComponent],

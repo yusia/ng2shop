@@ -8,10 +8,10 @@ export class ProductService {
     constructor() {
     }
 
-    getProducts():Promise<Array<ProductModel>> { 
-        let products= [
+    getProducts(): Promise<Array<ProductModel>> {
+        const products = [
             new ProductModel('American Shorthair Cat',
-                'American Shorthair Cat',
+                '2',
                 799,
                 Size.medium, 1),
             new ProductModel('Russian Blue Cat Breed',
@@ -19,7 +19,7 @@ export class ProductService {
                 699,
                 Size.large, 2),
             new ProductModel('American Shorthair Cat3',
-                'American Shorthair Cat23',
+                '3',
                 799,
                 Size.medium, 3),
             new ProductModel('American Shorthair Cat2',
