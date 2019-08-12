@@ -4,26 +4,37 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductModule } from './feature/product/product.module';
 import { CartModule } from './feature/cart/cart.module';
-import { AboutComponent } from './layout/about/about.component';
 import { CoreModule } from './core/core.module';
 import { WaySizeDirective } from './shared/directives/waySize.directive';
 import { SharedModule } from './shared/shared.module';
+import { LayoutModule } from './layout/layout.module';
+
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
     WaySizeDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ProductModule,
     CartModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    LayoutModule,
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(router: Router) {
+    const replacer = (key: string, value: any): string =>
+      typeof value === 'function' ? value.name : value;
+
+    console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
+}
+
+}

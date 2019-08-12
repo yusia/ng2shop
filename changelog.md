@@ -37,3 +37,8 @@ cart service (can add, clean products)
 -currency for price, uppercase for category
 - async for getting products 
 - orderPipe in cart
+
+###[5.0.0]
+-updated layout module (added path not found and about)
+- changed loading products  to load ROOT route /home
+- added routes about, home, details
