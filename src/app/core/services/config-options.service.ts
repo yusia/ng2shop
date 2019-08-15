@@ -4,16 +4,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigOptionsService {
- private tempConfigStorage: any;
-  constructor() { }
+  private tempConfigStorage: any;
+  constructor() {}
+  // configOptions - это массив?
   setConfig(...configOptions): void {
+    // может так?
+    // this.tempConfigStorage = {...this.tempConfigStorage, ...configOptions};
     for (const key in configOptions) {
-
-           this.tempConfigStorage[key] = configOptions[key];
+      this.tempConfigStorage[key] = configOptions[key];
     }
   }
 
   getConfig(): any {
-      return this.tempConfigStorage;
+    return this.tempConfigStorage;
   }
 }

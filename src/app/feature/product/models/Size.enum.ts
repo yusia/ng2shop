@@ -6,3 +6,4 @@ export enum Size {
     extraLarge= 'extraLarge',
     unknown= 'unknown'
 }
+// файлы именуем в нижнем регистре
