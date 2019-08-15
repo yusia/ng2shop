@@ -13,7 +13,7 @@ import { SharedModule } from './shared/shared.module';
   declarations: [
     AppComponent,
     AboutComponent,
-    WaySizeDirective
+    WaySizeDirective // <-- Почему бы не зарегистрировать в SharedModule?
   ],
   imports: [
     BrowserModule,

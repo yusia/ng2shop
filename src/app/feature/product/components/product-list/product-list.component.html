@@ -1,7 +1,8 @@
 <div *ngFor="let product of products |async" class="card text-white bg-primary mb-3 float-right" style="max-width: 20rem;">
     <app-product [product]="product"></app-product>
     <div class="card-footer text-muted">
-        
+
+      <!-- Что такое locale? -->
   <div  class="float-left" >{{product.price|currency:locale}} </div>
         <a href="#" class="btn btn-third float-right" [ngClass]="{'disabled':!product.isAvailable}" (click)="onBuy(product)">Buy</a>
     </div>
