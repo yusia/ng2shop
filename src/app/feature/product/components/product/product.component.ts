@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { ProductModel } from '../../models/product.model';
+import { ActivatedRoute, Router, UrlTree } from '@angular/router';
+import { Observable, } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -10,10 +13,12 @@ import { ProductModel } from '../../models/product.model';
 })
 export class ProductComponent implements OnInit {
   @Input() product: ProductModel;
+  constructor(private route: ActivatedRoute) { }
 
-  constructor() {  }
-
-  ngOnInit() {
+  ngOnInit(): void {
+    this.route.data.pipe(pluck('product')).subscribe((product: ProductModel) => {
+      this.product = {...product} ;
+    });
     console.log(this.product);
   }
 

@@ -8,4 +8,11 @@
         <!-- <a href="#" class="btn btn-third float-right" [ngClass]="{'disabled':!product.isAvailable}" 
             (click)="onBuy(product)">Buy</a>-->
     </div>
+    <div class="col-md-2">
+            <button class="btn btn-success"  (click)="onDisplayFeedbacks(product.id)">Show
+                    Feedbacks</button>
+   </div>
+
 </div>
+
+<router-outlet name="feedbacks"></router-outlet>

@@ -3,6 +3,7 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { ProductModel } from '../../models/product.model';
 import { ProductService } from '../../../shared/services/products.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
   @Output() buyProd: EventEmitter<any> = new EventEmitter();
 
-  products: Promise<Array<ProductModel>>;
+  products: Observable<Array<ProductModel>>;
   constructor(private productsService: ProductService,
     private router: Router) { }
 
@@ -27,5 +28,9 @@ export class ProductListComponent implements OnInit {
   onDetails(prod: ProductModel): void {
     const link = ['/details', prod];
     this.router.navigate(link);
+  }
+  
+  onDisplayFeedbacks(prodId:number): void {
+    this.router.navigate([{ outlets: { feedbacks: ['feedbacks',prodId] } }]);
   }
 }
