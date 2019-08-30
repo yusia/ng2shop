@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductListComponent, ProductComponent, FeedbacksComponent } from './components';
 import { ProductResolveGuard } from './guards/product-resolve.guard';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
     resolve: {
       product: ProductResolveGuard
     },
-    component: ProductComponent
+    component: ProductDetailsComponent
   },{// не работает =(())
     path: 'feedbacks/:prodID',
     component: FeedbacksComponent,

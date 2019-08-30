@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable,of } from 'rxjs';
 import { ProductModel } from '../models/product.model';
-import { ProductService } from '../../shared/services/products.service';
+import { ProductService } from '../service/products.service';
 import { map, delay, finalize, catchError, take } from 'rxjs/operators';
 import { Size } from '../models/Size.enum';
 @Injectable({

@@ -2,7 +2,7 @@
   <button class="btn btn-primary" type="button">
     CheckOut <span class="badge badge-light">{{count}}</span>
   </button>
-  <div *ngFor="let product of prodInCart | orderBy: sortOption"> 
+  <div *ngFor="let product of cartService.getProductsInCartObserv()|async | orderBy: sortOption"> 
     <app-cart-item  [item]="product"></app-cart-item>    
   <button class="btn btn-primary" type="button" (click)="onDecrease(product)"></button>
   {{product.count}}

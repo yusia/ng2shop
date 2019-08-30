@@ -16,6 +16,6 @@ export class ProductFeedbackService {
     }
 
     getProductFeedback(prodId: number): string[] {
-        return feedbacksList.filter(feedback => feedback.prodId === prodId)[0].feedbacks;
+        return feedbacksList.filter(feedback => feedback.id === prodId)[0].feedbacks;
     }
 }

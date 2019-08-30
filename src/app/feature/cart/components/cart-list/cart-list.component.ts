@@ -1,6 +1,6 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { CartService } from '../../../shared/services/cart.service';
 import { CartModel } from '../../models/cart.model';
+import { CartService } from '../../services/cart.service';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class CartListComponent implements OnInit, DoCheck  {
   }
 
   ngOnInit() {
-    this.prodInCart = this.cartService.products;
+  //  this.prodInCart = this.cartService.getProductsInCart();
     this.total = this.cartService.getTotalSum();
     this.sotringOptions = ['name', 'decription', 'price'];
     this.sortOption = this.sotringOptions[0];

@@ -1,8 +1,8 @@
 import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 
 import { ProductModel } from './feature/product/models/product.model';
-import { CartService } from './feature/shared/services/cart.service';
 import { Router, RouterOutlet } from '@angular/router';
+import { CartService } from './feature/cart/services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +11,13 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('appTitle') appTitle: ElementRef;
+  count: number;
 
   constructor(private cartService: CartService,
     private router: Router
-  ) { }
+  ) {
+    this.count=0;
+   }
 
   onActivate({ $event, routerOutlet }: { $event: any; routerOutlet: RouterOutlet; }) {
     console.log('Activated Component', $event, routerOutlet);
@@ -29,10 +32,11 @@ export class AppComponent implements AfterViewInit {
   }
   onBuy(prod: ProductModel): void {
     this.cartService.buy(prod);
+    this.count=this.cartService.getCount();
     console.log('buy');
   }
 
   get prodInCarCount() {
-    return this.cartService.products.length;
+    return this.cartService.getProductsInCartObserv.length;
   }
 }

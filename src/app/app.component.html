@@ -18,7 +18,10 @@
           <div>
             <ul class="nav navbar-nav">
               <li routerLinkActive="active">
-                <a routerLink="/cart">Cart</a>
+                <span class="icon-bar"><a class="navbar-brand" href="#" routerLink="/home">Home</a></span>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/cart">Cart <span class="badge badge-light">{{count}}</span></a>
               </li>
               <li routerLinkActive="active">
                 <a routerLink="/about">About</a>
@@ -37,7 +40,9 @@
         </router-outlet>
         <!-- Routed views go here -->
       </div>
-      <!-- <div class="col-md-2">
+    </div>
+  </div>
+  <!-- 
         <app-cart-list *ngIf="prodInCarCount>0; else elseBlock"></app-cart-list>
         <ng-template #elseBlock>
           <button class="btn btn-secondary " type="button">
@@ -45,25 +50,14 @@
           </button>
         </ng-template>
         <router-outlet name="cart"></router-outlet>
-      </div> -->
-
-    </div>
-
-  </div>
+      -->
 
 
-<!-- 
+  <!-- 
   <div style="float:left;width: 60%">
     <app-product-list (buyProd)="onBuy($event)"></app-product-list>
   </div>
-  <div class="navbar navbar-expand-lg navbar-light bg-light">
-    <app-cart-list *ngIf="prodInCarCount>0; else elseBlock"></app-cart-list>
-    <ng-template #elseBlock>
-      <button class="btn btn-secondary " type="button">
-        Cart empty
-      </button>
-    </ng-template>
-  </div>
+  
   <div class="footer mt-auto py-3 smFont" style="float:left;width: 60%">
     <app-about></app-about>
   </div> -->

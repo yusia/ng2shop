@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="pannel-title">
+            Order Form
+        </h4>
+    </div>
+    <div class="panel-body">
+        <form *ngIf="task" (ngSubmit)="onSaveTask()" id="task-form" #form="ngForm">
+            <div class="form-group">
+                <label for="action">Name</label>
+                <input type="text" class="form-control" id="action" name="action" placeholder="Action" required
+                    [(ngModel)]="order.name">
+            </div>
+            <div class="form-group">
+                <label for="priority">Phone number</label>
+                <input type="text" class="form-control" id="action" name="action" placeholder="Action" required
+                    [(ngModel)]="order.phone">
+            </div>
+            <button type="submit " class="btn btn-primary " form="task-form " [disabled]="form.invalid ">Save </button>
+            <button type="button " class="btn btn-primary " (click)="onGoBack() ">Back
+            </button>
+        </form>
+    </div>

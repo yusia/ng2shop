@@ -4,15 +4,9 @@
     <div class="card-footer text-muted">
 
         <div class="float-left">{{product.price|currency:locale}} </div>
-        <a href="#" class="btn btn-third float-right" (click)="onDetails(product)">Details</a>
-        <!-- <a href="#" class="btn btn-third float-right" [ngClass]="{'disabled':!product.isAvailable}" 
-            (click)="onBuy(product)">Buy</a>-->
+        <a href="#" class="btn btn-third float-right" (click)="onDetails(product.id)">Details</a>
+        <button href="#" class="btn btn-third float-right" [ngClass]="{'disabled':!product.isAvailable}"
+            (click)="onBuy(product)">Buy</button>
     </div>
-    <div class="col-md-2">
-            <button class="btn btn-success"  (click)="onDisplayFeedbacks(product.id)">Show
-                    Feedbacks</button>
-   </div>
 
 </div>
-
-<router-outlet name="feedbacks"></router-outlet>

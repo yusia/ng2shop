@@ -13,13 +13,9 @@ import { pluck } from 'rxjs/operators';
 })
 export class ProductComponent implements OnInit {
   @Input() product: ProductModel;
-  constructor(private route: ActivatedRoute) { }
+  constructor(){}
 
   ngOnInit(): void {
-    this.route.data.pipe(pluck('product')).subscribe((product: ProductModel) => {
-      this.product = {...product} ;
-    });
-    console.log(this.product);
   }
 
 }

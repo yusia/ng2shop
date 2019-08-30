@@ -1,0 +1,16 @@
+<app-product [product]="product"></app-product>
+<div class="card-footer text-muted">
+
+    <div class="float-left">{{product.price|currency:locale}} </div>
+    <button href="#" class="btn btn-third float-right" [ngClass]="{'disabled':!product.isAvailable}"
+        (click)="onBuy(product)">Buy</button>
+</div>
+<div class="col-md-4">
+    <button class="btn btn-success" (click)="onDisplayFeedbacks(product.id)">Show Feedbacks</button>
+    <button class="btn btn-primary" type="button" (click)="onGoBack()">Back
+    </button>
+</div>
+
+<div class="col-md-2" style="color:red">
+    <router-outlet name="feedbacks"></router-outlet>
+</div>

@@ -1,6 +1,6 @@
-import { ProductModel } from '../../product/models/product.model';
+import { ProductModel } from '../models/product.model';
 import { Injectable } from '@angular/core';
-import { Size } from '../../product/models/Size.enum';
+import { Size } from '../models/Size.enum';
 import { Observable, of, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 

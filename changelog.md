@@ -42,3 +42,13 @@ cart service (can add, clean products)
 -updated layout module (added path not found and about)
 - changed loading products  to load ROOT route /home
 - added routes about, home, details
+
+###[5.0.1]
+-added loading bootstrap styles using style option in angular.json
+- added route details/:productID with resolveGuard 
+- added feedback componnet, service and route feedbacks/:prodID by prodID
+###[5.0.2]
+-added cartservice
+added addToCart component which get ability to write count of products
+routes: cart
+         add/id 
