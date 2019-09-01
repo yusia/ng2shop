@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { CartService } from 'src/app/feature/cart/services/cart.service';
+import { ProductModel } from 'src/app/feature/product/models';
+import { ProductService } from 'src/app/feature/product/service/products.service';
 
 @Component({
   selector: 'app-manage-products',
@@ -7,9 +13,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageProductsComponent implements OnInit {
 
-  constructor() { }
+  products: Observable<Array<ProductModel>>;
+  constructor(private productsService: ProductService,
+    private router: Router, private cartService: CartService) { }
 
   ngOnInit() {
+    this.products = this.productsService.getProducts();
+  }
+  onDelete(id:number):void{
+
   }
 
 }

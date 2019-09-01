@@ -39,4 +39,11 @@ export class ProductService {
           catchError(err => throwError('Error in getUser method'))
         );
     }
+    deleteProduct(id:number){
+        // this.getProducts()
+        // .pipe(
+        //   delete((products: Array<ProductModel>) => products.find(user => user.id === +id)),
+        //   catchError(err => throwError('Error in getUser method'))
+        // );
+    }
 }

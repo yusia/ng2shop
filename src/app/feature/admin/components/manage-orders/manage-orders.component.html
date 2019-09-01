@@ -1,3 +1,23 @@
-<p>
-  manage-orders works!
-</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Count</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products |async">
+        <th scope="row">{{index}}</th>
+        <td>{{product.Name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.count}}</td>
+        <td><button href="#" class="btn btn-third float-right" [ngClass]="{'disabled':!product.isAvailable}"
+            (click)="onEdit(product.id)">Edit</button>
+          <button href="#" class="btn btn-third float-right" [ngClass]="{'disabled':!product.isAvailable}"
+            (click)="onDelete(product.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
