@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './layout/layout.module';
 
 import { Router } from '@angular/router';
+import { AdminModule } from './feature/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { Router } from '@angular/router';
     CoreModule,
     SharedModule,
     LayoutModule,
+    AdminModule,
     AppRoutingModule,
     
   ],
