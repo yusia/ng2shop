@@ -20,8 +20,9 @@ export class ManageProductsComponent implements OnInit {
   ngOnInit() {
     this.products = this.productsService.getProducts();
   }
-  onDelete(id:number):void{
 
+  onEdit(id: number) {
+    const link = ['/admin/products/edit', id];
+    this.router.navigate(link);
   }
-
 }
