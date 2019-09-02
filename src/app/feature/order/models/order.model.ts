@@ -1,4 +1,4 @@
-import { CartModel } from './cart.model';
+import { CartModel } from '../../cart/models/cart.model';
 
 export class OrderModel {
   name: string;

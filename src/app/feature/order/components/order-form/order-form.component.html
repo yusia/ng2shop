@@ -4,8 +4,10 @@
             Order Form
         </h4>
     </div>
+    <div *ngFor="let product of order.products" class="card text-white bg-primary mb-3 float-right"
+        style="max-width: 20rem;"> {{product.name}} - {{product.count}}</div>
     <div class="panel-body">
-        <form *ngIf="task" (ngSubmit)="onSaveTask()" id="task-form" #form="ngForm">
+        <form *ngIf="order" (ngSubmit)="onSave()" id="task-form" #form="ngForm">
             <div class="form-group">
                 <label for="action">Name</label>
                 <input type="text" class="form-control" id="action" name="action" placeholder="Action" required

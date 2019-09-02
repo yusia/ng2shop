@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderModel } from '../../models/order.model';
-import { CartService } from '../../services/cart.service';
-import { map } from 'rxjs/operators';
-import { from, of } from 'rxjs';
-import { CartModel } from '../../models/cart.model';
+import { CartService } from '../../../cart/services/cart.service';
 import { Location } from '@angular/common';
-import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 @Component({
   selector: 'app-order-form',
   templateUrl: './order-form.component.html',
@@ -15,8 +11,7 @@ export class OrderFormComponent implements OnInit {
   order: OrderModel;
   constructor(
     private location: Location,
-    public cartService: CartService,
-    localStorage:LocalStorageService) { }
+    public cartService: CartService) { }
 
   ngOnInit() {
     let products = this.cartService.getProductsInCart();
@@ -24,8 +19,7 @@ export class OrderFormComponent implements OnInit {
    
   }
 
-  onSave() {
-    
+  onSave() {    
     localStorage.setItem("lastOrder",this.order.name)
   }
   
