@@ -8,14 +8,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CartService } from './services/cart.service';
 import { CartComponent } from './cart.component';
 import { CartRoutingModule } from './cart-routing.module';
-import { OrderFormComponent } from './components/order-form/order-form.component';
 @NgModule({
   imports: [CommonModule, FormsModule, SharedModule, CartRoutingModule],
 
   declarations: [CartComponent,
     CartItemComponent,
-    CartListComponent,
-    OrderFormComponent],
+    CartListComponent],
   providers: [CartService],
   exports: [CartComponent]
 })
