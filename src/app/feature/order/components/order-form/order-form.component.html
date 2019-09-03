@@ -4,10 +4,14 @@
             Order Form
         </h4>
     </div>
-    <div *ngFor="let product of order.products" class="card text-white bg-primary mb-3 float-right"
-        style="max-width: 20rem;"> {{product.name}} - {{product.count}}</div>
+    <div class="card text-white bg-primary mb-3 float-right" style="max-width: 20rem;"></div>
     <div class="panel-body">
-        <form *ngIf="order" (ngSubmit)="onSave()" id="task-form" #form="ngForm">
+        <ul class="list-group">
+            <li *ngFor="let product of order.products" class="list-group-item"> {{product.name}} - {{product.count}}
+            </li>
+        </ul>
+        <div class="list-group-item"> Total : {{total|currency:local}}</div>
+        <form *ngIf="order.products.length > 0" (ngSubmit)="onSave()" id="order-form" #form="ngForm">
             <div class="form-group">
                 <label for="action">Name</label>
                 <input type="text" class="form-control" id="action" name="action" placeholder="Action" required
@@ -18,7 +22,8 @@
                 <input type="text" class="form-control" id="action" name="action" placeholder="Action" required
                     [(ngModel)]="order.phone">
             </div>
-            <button type="submit " class="btn btn-primary " form="task-form " [disabled]="form.invalid ">Save </button>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Save
+            </button>
             <button type="button " class="btn btn-primary " (click)="onGoBack() ">Back
             </button>
         </form>

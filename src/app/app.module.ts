@@ -11,11 +11,13 @@ import { LayoutModule } from './layout/layout.module';
 
 import { Router } from '@angular/router';
 import { AdminModule } from './feature/admin/admin.module';
+import { OrderModule } from './feature/order/order.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WaySizeDirective
+    WaySizeDirective,
+    
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { AdminModule } from './feature/admin/admin.module';
     SharedModule,
     LayoutModule,
     AdminModule,
+    OrderModule,
     AppRoutingModule,
     
   ],

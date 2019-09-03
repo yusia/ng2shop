@@ -54,3 +54,5 @@ routes: cart
          add/id 
 - productFormComponent
 - added route admin/products/edit
+- added route /order - which save order in localStorage
+- manage-order - get Orders from local storage

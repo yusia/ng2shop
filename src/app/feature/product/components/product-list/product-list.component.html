@@ -6,7 +6,7 @@
         <li class="list-group-item">
             <div class="float-left">{{product.price|currency:locale}} </div>
             <a href="#" class="btn btn-third float-right" (click)="onDetails(product.id)">Details</a>
-            <button href="#" class="btn btn-third float-right" [ngClass]="{'disabled':!product.isAvailable}"
+            <button href="#" class="btn btn-third float-right" [disabled]="product.count===0"
                 (click)="onBuy(product)">Buy</button>
         </li>
     </ul>

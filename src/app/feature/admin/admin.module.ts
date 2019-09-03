@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 import { ProductModule } from '../product/product.module';
 import { ProductComponent } from '../product/components';
+import { OrderModule } from '../order/order.module';
 
 @NgModule({
   declarations: [AdminRoutingModule.components],
@@ -11,6 +12,7 @@ import { ProductComponent } from '../product/components';
     CommonModule,
     ProductModule,
     FormsModule,
+    OrderModule,
     AdminRoutingModule
   ]
 })

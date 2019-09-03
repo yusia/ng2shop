@@ -1,6 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { CartModel } from '../../models/cart.model';
 import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,13 +10,14 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./cart-list.component.css'],
 
 })
-export class CartListComponent implements OnInit, DoCheck  {
+export class CartListComponent implements OnInit, DoCheck {
   prodInCart: Array<CartModel>;
   total: number;
   count: number;
   sortOption: string;
   sotringOptions: Array<string>;
-  constructor(public cartService: CartService) {
+  constructor(public cartService: CartService,
+    private router: Router) {
   }
   ngDoCheck() {
     this.count = this.cartService.getCount();
@@ -23,7 +25,7 @@ export class CartListComponent implements OnInit, DoCheck  {
   }
 
   ngOnInit() {
-  //  this.prodInCart = this.cartService.getProductsInCart();
+    //  this.prodInCart = this.cartService.getProductsInCart();
     this.total = this.cartService.getTotalSum();
     this.sotringOptions = ['name', 'decription', 'price'];
     this.sortOption = this.sotringOptions[0];
@@ -31,7 +33,7 @@ export class CartListComponent implements OnInit, DoCheck  {
 
   onChange(deviceValue) {
     console.log(this.sortOption);
-}
+  }
   onRemove(prod: CartModel): void {
     this.cartService.remove(prod);
   }
@@ -43,5 +45,10 @@ export class CartListComponent implements OnInit, DoCheck  {
     if (prod.count > 0) {
       prod.count--;
     }
+  }
+
+  onCreateOrder() {
+    const link = ['/order'];
+    this.router.navigate(link);
   }
 }

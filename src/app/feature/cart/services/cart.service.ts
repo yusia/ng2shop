@@ -47,17 +47,18 @@ export class CartService implements OnInit {
     }
 
     clean(): void {
-        // while (this.products.length > 0) {
-        //     this.products.forEach(element => {
-        //         this.remove(element);
-        //     });
-        // }
+        while (products.length > 0) {
+            products.forEach(element => {
+                this.remove(element);
+            });
+        }
     }
     getTotalSum(): number {
         const reducer = (accumulator, currentValue) => accumulator + currentValue.price * currentValue.count;
         return products.reduce(reducer, 0);
         return -1;
     }
+
     getCount(): number {
         const reducer = (accumulator, currentValue) => accumulator + currentValue.count;
         return products.reduce(reducer, 0);

@@ -14,14 +14,14 @@ const AboutShopStorage = new ConstantsService();
   declarations: [],
   providers: [
     { provide: AboutShopStorage, useValue: AboutShopStorage },
-    { provide: LocalStorageService, useExisting: window.localStorage },
+    { provide: LocalStorageService, useClass: LocalStorageService},
     { provide: ConfigOptionsService, useClass: ConfigOptionsService },
     { provide: NAME, useValue: 'Friends shop' }, // literal registration
     { provide: String64, useFactory: GeneratorFactory(64), deps: [GeneratorService] }
   ],
   imports: [
     CommonModule
-
-  ]
+  ],
+  exports: []
 })
 export class CoreModule { }

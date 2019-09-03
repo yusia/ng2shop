@@ -8,14 +8,8 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit {
   constructor(
-    private router: Router
   ) { }
 
   ngOnInit() {
-  }
-
-  onCreateOrder() {
-    const link = ['/orders/add'];
-    this.router.navigate(link);
   }
 }
