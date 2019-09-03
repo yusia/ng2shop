@@ -19,7 +19,6 @@ export class ProductFormComponent implements OnInit {
         private productService: ProductService) { }
 
     ngOnInit() {
-        console.log(this.product);
         this.activeRouter.data.pipe(pluck('product')).subscribe((product: ProductModel) => {
             this.product = { ...product };
         });
@@ -28,7 +27,7 @@ export class ProductFormComponent implements OnInit {
 
     onSave(prodId: number): void {
         const product = { ...this.product };
-        const method = product.id ? 'update' : 'create';
+        const method = product.id>0 ? 'update' : 'create';
         this.productService[method](product);
         this.location.back();
     }

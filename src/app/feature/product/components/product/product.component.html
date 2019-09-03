@@ -1,6 +1,7 @@
-  <div class="card-header">Cat friend <span class="float-right">In Stock: {{product.count >0 ? 'yes':'no' }}</span></div>
-  <div class="card-body">
-    <h4 class="card-title">{{ product.name}}</h4>
-    <p class="card-text"  *ngIf="product.description">{{product.description}}</p> 
-    <p >Catergory: {{ product.category | uppercase}}</p>
-  </div>
+<div class="panel-heading">
+  {{ product.name}} <span class="float-right">In Stock: {{product.count >0 ? 'yes':'no' }}</span>
+</div>
+<div class="panel-body">
+  <div *ngIf="product.description">{{product.description}}</div>
+  <div> Catergory: {{ product.category | uppercase}}</div>
+</div>

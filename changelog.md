@@ -52,3 +52,5 @@ cart service (can add, clean products)
 added addToCart component which get ability to write count of products
 routes: cart
          add/id 
+- productFormComponent
+- added route admin/products/edit

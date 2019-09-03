@@ -4,6 +4,7 @@ import { AdminComponent } from './admin.component';
 import { ManageOrdersComponent, ManageProductsComponent, AdminDashboardComponent } from '.';
 import { ProductResolveGuard } from '../product/guards/product-resolve.guard';
 import { ProductFormComponent } from '../product/components/product-form/product-form.component';
+import { ProductModel } from '../product/models';
 
 const routes: Routes = [
   {
@@ -18,6 +19,12 @@ const routes: Routes = [
             component: ManageProductsComponent,
             children: [{
               path: 'edit/:productID',
+              resolve: {
+                product: ProductResolveGuard
+              },
+              component: ProductFormComponent,
+            },{
+              path: 'add',
               resolve: {
                 product: ProductResolveGuard
               },

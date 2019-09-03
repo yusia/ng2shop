@@ -25,4 +25,8 @@ export class ManageProductsComponent implements OnInit {
     const link = ['/admin/products/edit', id];
     this.router.navigate(link);
   }
+  onAdd(id: number) {
+    const link = ['/admin/products/add'];
+    this.router.navigate(link);
+  }
 }

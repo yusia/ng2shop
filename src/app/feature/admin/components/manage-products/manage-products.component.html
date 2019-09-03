@@ -1,3 +1,4 @@
+<button href="#" class="btn btn-success" (click)="onAdd()">Add</button>
 <table class="table">
   <thead>
     <tr>
@@ -10,14 +11,15 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of products |async">
-      <th scope="row">{{index}}</th>
-      <td>{{product.Name}}</td>
+      <th scope="row">{{product.id}}</th>
+      <td>{{product.name}}</td>
       <td>{{product.price}}</td>
       <td>{{product.count}}</td>
       <td>{{product.category}}</td>
       <td>{{product.description}}</td>
-      <td><button href="#" class="btn btn-success" (click)="onEdit(product.id)">Edit</button>
+      <td><button href="#" class="btn btn-success" (click)="onEdit(product.id)">Edit</button></td>
     </tr>
   </tbody>
 </table>
+
 <router-outlet></router-outlet>

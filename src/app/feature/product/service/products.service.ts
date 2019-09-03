@@ -54,7 +54,15 @@ export class ProductService {
     }
 
     create(product: ProductModel): void {
-      
+        product.id=this.getNextProdId();
         productsList.push(product);
+    }
+
+    getNextProdId():number {
+        let highestId:number = productsList.reduce(function (prev, current) {
+            return (prev.id > current.id) ? prev : current
+        }).id +1;
+        return highestId;
+    1;
     }
 }

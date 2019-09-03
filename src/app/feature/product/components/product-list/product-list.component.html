@@ -1,12 +1,13 @@
-<div *ngFor="let product of products |async" class="card text-white bg-primary mb-3 float-right"
-    style="max-width: 20rem;">
+<div *ngFor="let product of products |async" class="panel panel-default" style="width: 18rem;">
+    
     <app-product [product]="product"></app-product>
-    <div class="card-footer text-muted">
 
-        <div class="float-left">{{product.price|currency:locale}} </div>
-        <a href="#" class="btn btn-third float-right" (click)="onDetails(product.id)">Details</a>
-        <button href="#" class="btn btn-third float-right" [ngClass]="{'disabled':!product.isAvailable}"
-            (click)="onBuy(product)">Buy</button>
-    </div>
-
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="float-left">{{product.price|currency:locale}} </div>
+            <a href="#" class="btn btn-third float-right" (click)="onDetails(product.id)">Details</a>
+            <button href="#" class="btn btn-third float-right" [ngClass]="{'disabled':!product.isAvailable}"
+                (click)="onBuy(product)">Buy</button>
+        </li>
+    </ul>
 </div>
