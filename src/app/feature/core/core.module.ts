@@ -7,7 +7,7 @@ import { GeneratorService } from 'src/app/core/services/generator.service';
 const NAME = new InjectionToken<string[]>('token');
 
 @NgModule({
-  declarations: [
+  declarations: [    
   ],
   exports: [  ],
    providers: [

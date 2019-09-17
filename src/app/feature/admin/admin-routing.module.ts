@@ -4,38 +4,35 @@ import { AdminComponent } from './admin.component';
 import { ManageOrdersComponent, ManageProductsComponent, AdminDashboardComponent } from '.';
 import { ProductResolveGuard } from '../product/guards/product-resolve.guard';
 import { ProductFormComponent } from '../product/components/product-form/product-form.component';
-import { ProductModel } from '../product/models';
+import { AuthGuard } from '../core/guard/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
+    canActivate: [AuthGuard],
     children: [
       {
-        path: '',
+        path: 'managingproducts',
+        component: ManageProductsComponent,
         children: [
           {
-            path: 'products',
-            component: ManageProductsComponent,
-            children: [{
-              path: 'edit/:productID',
-              resolve: {
-                product: ProductResolveGuard
-              },
-              component: ProductFormComponent,
-            },{
-              path: 'add',
-              resolve: {
-                product: ProductResolveGuard
-              },
-              component: ProductFormComponent,
-            }]
-          }
-          ,
-          { path: 'orders', component: ManageOrdersComponent },
-          { path: '', component: AdminDashboardComponent }
-        ]
+            path: 'edit/:productID',
+            resolve: {
+              product: ProductResolveGuard
+            },
+            component: ProductFormComponent,
+          }, {
+            path: 'add',
+            resolve: {
+              product: ProductResolveGuard
+            },
+            component: ProductFormComponent,
+          }]
       }
+      ,
+      { path: 'orders', component: ManageOrdersComponent },
+      { path: '', component: AdminDashboardComponent }
     ]
   }
 ];

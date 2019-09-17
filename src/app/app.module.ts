@@ -10,7 +10,6 @@ import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './layout/layout.module';
 
 import { Router } from '@angular/router';
-import { AdminModule } from './feature/admin/admin.module';
 import { OrderModule } from './feature/order/order.module';
 
 @NgModule({
@@ -21,12 +20,11 @@ import { OrderModule } from './feature/order/order.module';
   ],
   imports: [
     BrowserModule,
+    LayoutModule,
     ProductModule,
     CartModule,
     CoreModule,
     SharedModule,
-    LayoutModule,
-    AdminModule,
     OrderModule,
     AppRoutingModule,
     

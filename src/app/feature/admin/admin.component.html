@@ -2,13 +2,13 @@
 <nav>
   <ul class="nav nav-tabs">
     <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-      <a routerLink="./">Dashboard</a>
+      <a routerLink="./" queryParamsHandling="preserve" preserveFragment>Dashboard</a>
     </li>
     <li routerLinkActive="active">
-      <a routerLink="./products">Manage Products</a>
+      <a routerLink="./managingproducts" queryParamsHandling="preserve" preserveFragment >Manage Products</a>
     </li>
     <li routerLinkActive="active">
-      <a routerLink="./orders">Manage Orders</a>
+      <a routerLink="./orders"  queryParamsHandling="preserve" preserveFragment>Manage Orders</a>
     </li>
   </ul>
 </nav>

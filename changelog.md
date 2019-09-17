@@ -56,3 +56,4 @@ routes: cart
 - added route admin/products/edit
 - added route /order - which save order in localStorage
 - manage-order - get Orders from local storage
+- added canLoad guard for admin and lazy loading

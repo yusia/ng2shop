@@ -4,6 +4,9 @@ import { AboutComponent, PathNotFoundComponent } from './layout';
 import { CartComponent } from './feature/cart/cart.component';
 import { CustomPreloadingStrategyService } from './feature/core/custom-preloading-strategy.service';
 import { OrderFormComponent } from './feature/order/components/order-form/order-form.component';
+import { LoginComponent } from './layout/components/login/login.component';
+import { AuthGuard } from './feature/core/guard/auth.guard';
+import { AdminComponent } from './feature/admin/admin.component';
 
 const extraOptions: ExtraOptions = {
   preloadingStrategy: CustomPreloadingStrategyService,
@@ -12,13 +15,13 @@ const extraOptions: ExtraOptions = {
 
 const routes: Routes = [
   {
-    path: 'about',
-    component: AboutComponent
+    path: '',
+    redirectTo: '/products',
+    pathMatch: 'full'
   },
   {
-    path: 'product',
-    redirectTo: '/home',
-    pathMatch: 'full'
+    path: 'about',
+    component: AboutComponent
   },
   {
     path: 'cart',
@@ -26,7 +29,17 @@ const routes: Routes = [
     data: {
       preload: true
     }
-  }, 
+  },
+  {
+    path: 'admin',
+  // canLoad: [AuthGuard],
+    loadChildren: () => import('./feature/admin/admin.module').then(m => m.AdminModule),
+    
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: 'order',
     component: OrderFormComponent

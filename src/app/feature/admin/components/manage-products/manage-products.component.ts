@@ -22,11 +22,11 @@ export class ManageProductsComponent implements OnInit {
   }
 
   onEdit(id: number) {
-    const link = ['/admin/products/edit', id];
+    const link = ['/admin/managingproducts/edit', id];
     this.router.navigate(link);
   }
   onAdd(id: number) {
-    const link = ['/admin/products/add'];
+    const link = ['/admin/managingproducts/add'];
     this.router.navigate(link);
   }
 }

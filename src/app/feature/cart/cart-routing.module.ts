@@ -5,7 +5,7 @@ import { CartListComponent } from './components/cart-list/cart-list.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'cart',
     component: CartComponent,
     children: [
     //   {

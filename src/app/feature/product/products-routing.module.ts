@@ -6,8 +6,9 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: ProductListComponent
+    path: 'products',
+    component: ProductListComponent,
+    
   },{
     path:'details/:productID',
     resolve: {
