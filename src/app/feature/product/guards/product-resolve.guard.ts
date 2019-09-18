@@ -18,7 +18,7 @@ export class ProductResolveGuard implements Resolve<ProductModel> {
     console.log('Resolve Guard is called');
 
     if (!route.paramMap.has('productID')) {
-      return of(new ProductModel(-1,null, '',0,Size.unknown,0));
+      return of(new ProductModel(null,null, '',0,Size.unknown,0));
     }
 
     const id = +route.paramMap.get('productID');

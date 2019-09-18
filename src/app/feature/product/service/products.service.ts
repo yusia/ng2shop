@@ -76,7 +76,7 @@ export class ProductService {
 
     create(product: ProductModel): Observable<ProductModel> {
        
-        const url = `${this.productsUrl}/${product.id}`;
+        const url = `${this.productsUrl}`;
         const body = JSON.stringify(product);
         const options = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' })

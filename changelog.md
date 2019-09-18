@@ -60,3 +60,4 @@ routes: cart
 ###[6.0.0]
 - added db.json with products
 - changed productService for using http
+- fix updating admin/productlist after edit
