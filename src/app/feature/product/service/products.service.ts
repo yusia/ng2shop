@@ -2,7 +2,13 @@ import { ProductModel } from '../models/product.model';
 import { Injectable } from '@angular/core';
 import { Size } from '../models/Size.enum';
 import { Observable, of, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { concatMap, catchError, retry } from 'rxjs/operators';
+import {
+    HttpClient,
+    HttpHeaders,
+    HttpResponse,
+    HttpErrorResponse
+} from '@angular/common/http';
 
 const productsList = [
     new ProductModel(5, 'American Shorthair Cat',
@@ -25,44 +31,75 @@ const productsList = [
 const productsListObservable: Observable<Array<ProductModel>> = of(productsList);
 @Injectable()
 export class ProductService {
-    private products;
-    constructor() {
-    }
-    getProducts(): Observable<Array<ProductModel>> {
 
-        return productsListObservable;
+    private productsUrl = 'http://localhost:3000/products';
+
+    private products;
+    constructor(private http: HttpClient) {
     }
-    getProduct(id: number): Observable<ProductModel> {
-        return this.getProducts()
+    getProducts(): Observable<ProductModel[]> {
+        return this.http.get<ProductModel[]>(this.productsUrl)
             .pipe(
-                map((products: Array<ProductModel>) => products.find(user => user.id === +id)),
-                catchError(err => throwError('Error in getUser method'))
+                retry(3),
+                catchError(this.handleError)
             );
     }
-    deleteProduct(id: number) {
-        // this.getProducts()
-        // .pipe(
-        //   delete((products: Array<ProductModel>) => products.find(user => user.id === +id)),
-        //   catchError(err => throwError('Error in getUser method'))
+
+    getProduct(id: number): Observable<ProductModel> {
+        let url = `${this.productsUrl}/${id}`;
+        return this.http.get<ProductModel>(url)
+            .pipe(
+                retry(3),
+                catchError(this.handleError)
+            );
     }
 
-    update(product: ProductModel): void {
-        const i: number = productsList.findIndex(p => p.id === product.id);
-        if (i > -1) {
-            productsList.splice(i, 1, product);
+    deleteProduct(id: number): Observable<ProductModel[]>  {
+        const url = `${this.productsUrl}/${id}`;
+        return this.http.delete(url)
+            .pipe(concatMap(() => this.getProducts()));
+    }
+
+
+    update(product: ProductModel): Observable<ProductModel> {
+        const url = `${this.productsUrl}/${product.id}`;
+        const body = JSON.stringify(product);
+        const options = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        };
+
+        return this.http
+            .put<ProductModel>(url, body, options)
+            .pipe(catchError(this.handleError));
+
+    }
+
+    create(product: ProductModel): Observable<ProductModel> {
+       
+        const url = `${this.productsUrl}/${product.id}`;
+        const body = JSON.stringify(product);
+        const options = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        };
+
+        return this.http
+            .post<ProductModel>(url, body, options)
+            .pipe(catchError(this.handleError));
+    }
+
+    
+
+    private handleError(err: HttpErrorResponse) {
+        // A client-side or network error occurred.
+        if (err.error instanceof Error) {
+            console.error('An error occurred:', err.error.message);
+        } else {
+            // The backend returned an unsuccessful response code.
+            // The response body may contain clues as to what went wrong,
+            console.error(`Backend returned code ${err.status}, body was: ${err.error}`);
         }
+
+        return throwError('Something bad happened; please try again later.');
     }
 
-    create(product: ProductModel): void {
-        product.id=this.getNextProdId();
-        productsList.push(product);
-    }
-
-    getNextProdId():number {
-        let highestId:number = productsList.reduce(function (prev, current) {
-            return (prev.id > current.id) ? prev : current
-        }).id +1;
-        return highestId;
-    1;
-    }
 }

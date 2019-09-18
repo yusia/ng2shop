@@ -11,6 +11,7 @@ import { LayoutModule } from './layout/layout.module';
 
 import { Router } from '@angular/router';
 import { OrderModule } from './feature/order/order.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import { OrderModule } from './feature/order/order.module';
     CoreModule,
     SharedModule,
     OrderModule,
+    HttpClientModule,
+
     AppRoutingModule,
     
   ],

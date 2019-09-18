@@ -13,12 +13,14 @@ import { ProductService } from 'src/app/feature/product/service/products.service
 })
 export class ManageProductsComponent implements OnInit {
 
-  products: Observable<Array<ProductModel>>;
-  constructor(private productsService: ProductService,
-    private router: Router, private cartService: CartService) { }
+  products$: Observable<ProductModel[]>;
+  constructor(public productsService: ProductService,
+    private router: Router,
+    private cartService: CartService) { }
 
   ngOnInit() {
-    this.products = this.productsService.getProducts();
+    this.products$ = this.productsService.getProducts();
+    
   }
 
   onEdit(id: number) {
