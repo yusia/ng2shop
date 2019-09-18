@@ -15,12 +15,12 @@ export class ManageProductsComponent implements OnInit {
 
   products$: Observable<ProductModel[]>;
   constructor(public productsService: ProductService,
-    private router: Router,
-    private cartService: CartService) { }
+              private router: Router,
+              private cartService: CartService) { }
 
   ngOnInit() {
     this.products$ = this.productsService.getProducts();
-    
+
   }
 
   onEdit(id: number) {

@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit, ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ElementRef, OnInit, DoCheck } from '@angular/core';
 
 import { ProductModel } from './feature/product/models/product.model';
 import { Router, RouterOutlet } from '@angular/router';
@@ -11,14 +11,14 @@ import { ConfigOptionsService } from './core/services/config-options.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, DoCheck, AfterViewInit {
   @ViewChild('appTitle') appTitle: ElementRef;
-  count: number = 0;
+  count = 0;
 
   constructor(private cartService: CartService,
-    private router: Router,
-    private preloadingStrategy: CustomPreloadingStrategyService,
-    private appSettingsService: ConfigOptionsService
+              private router: Router,
+              private preloadingStrategy: CustomPreloadingStrategyService,
+              private appSettingsService: ConfigOptionsService
   ) {
   }
   ngOnInit() {

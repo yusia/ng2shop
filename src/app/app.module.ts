@@ -18,7 +18,7 @@ import { httpInterceptorProviders } from './core/interceptors';
   declarations: [
     AppComponent,
     WaySizeDirective,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -31,12 +31,12 @@ import { httpInterceptorProviders } from './core/interceptors';
     HttpClientModule,
 
     AppRoutingModule,
-    
+
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor(router: Router) {
     const replacer = (key: string, value: any): string =>
       typeof value === 'function' ? value.name : value;

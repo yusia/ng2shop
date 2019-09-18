@@ -34,7 +34,7 @@ const routes: Routes = [
     path: 'admin',
   // canLoad: [AuthGuard],
     loadChildren: () => import('./feature/admin/admin.module').then(m => m.AdminModule),
-    
+
   },
   {
     path: 'login',

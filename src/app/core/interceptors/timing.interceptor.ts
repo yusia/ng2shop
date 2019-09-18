@@ -23,6 +23,6 @@ export class TimingInterceptor implements HttpInterceptor {
         }
         return event;
       })
-    )
+    );
   }
 }

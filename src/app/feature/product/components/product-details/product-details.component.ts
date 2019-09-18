@@ -20,7 +20,7 @@ export class ProductDetailsComponent implements OnInit {
         console.log(this.product);
         this.activeRouter.data.pipe(pluck('product')).subscribe((product: ProductModel) => {
             this.product = { ...product };
-        this.router.navigate([{ outlets: { feedbacks: ['feedbacks', this.product.id] } }]);
+            this.router.navigate([{ outlets: { feedbacks: ['feedbacks', this.product.id] } }]);
         });
 
     }

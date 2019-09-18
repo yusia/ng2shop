@@ -8,14 +8,14 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductListComponent,
-    
-  },{
-    path:'details/:productID',
+
+  }, {
+    path: 'details/:productID',
     resolve: {
       product: ProductResolveGuard
     },
     component: ProductDetailsComponent
-  },{// не работает =(())
+  }, {// не работает =(())
     path: 'feedbacks/:prodID',
     component: FeedbacksComponent,
     outlet: 'feedbacks'

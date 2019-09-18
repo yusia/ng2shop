@@ -13,7 +13,7 @@ import { pluck } from 'rxjs/operators';
 })
 export class ProductComponent implements OnInit {
   @Input() product: ProductModel;
-  constructor(){}
+  constructor() {}
 
   ngOnInit(): void {
   }

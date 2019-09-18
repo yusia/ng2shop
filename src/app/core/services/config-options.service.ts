@@ -11,7 +11,7 @@ export class ConfigOptionsService {
   private appConfig: any;
   private defaultSettings = { productsUrl: 'http://localhost:3000/products' };
   constructor(private customLocalStorage: LocalStorageService,
-    private http: HttpClient) {
+              private http: HttpClient) {
   }
 
 
@@ -19,32 +19,30 @@ export class ConfigOptionsService {
     return this.http.get('/assets/app-settings.json').pipe(
       map(data => {
         this.appConfig = data;
-        this.customLocalStorage.setItem("config", data);
+        this.customLocalStorage.setItem('config', data);
       }),
       retry(2),
       catchError(this.handleError)
-    )
+    );
   }
 
   getConfig(): any {
-    let config = localStorage.getItem("config");
+    const config = localStorage.getItem('config');
     if (config) {
       return config;
-    }
-    else {
+    } else {
       return this.appConfig;
     }
 
   }
   getProductsUrl(): any {
-    let config = this.customLocalStorage.getItem("config");
+    const config = this.customLocalStorage.getItem('config');
     if (config) {
-      return config["productsUrl"];
-    }
-    else {
-      this.loadAppConfig().subscribe(sub=>{
-        return this.appConfig.productsUrl;         
-      })
+      return config.productsUrl;
+    } else {
+      this.loadAppConfig().subscribe(sub => {
+        return this.appConfig.productsUrl;
+      });
     }
 
   }

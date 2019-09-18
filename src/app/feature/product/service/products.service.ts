@@ -26,7 +26,7 @@ export class ProductService {
     }
 
     getProduct(id: number): Observable<ProductModel> {
-        let url = `${this.productsUrl}/${id}`;
+        const url = `${this.productsUrl}/${id}`;
         return this.http.get<ProductModel>(url)
             .pipe(
                 retry(3),

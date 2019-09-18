@@ -5,7 +5,7 @@ import { AboutComponent, PathNotFoundComponent } from './components';
 import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
-  declarations: [AboutComponent, PathNotFoundComponent,LoginComponent],
+  declarations: [AboutComponent, PathNotFoundComponent, LoginComponent],
   imports: [
     CommonModule
   ]

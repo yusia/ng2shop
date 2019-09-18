@@ -8,10 +8,10 @@ import { OrderService } from 'src/app/feature/order/services/order.service';
 })
 export class ManageOrdersComponent implements OnInit {
 
-  constructor(public orderService:OrderService) { }
+  constructor(public orderService: OrderService) { }
 
   ngOnInit() {
- 
+
   }
 
 }

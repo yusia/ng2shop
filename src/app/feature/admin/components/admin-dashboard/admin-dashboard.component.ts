@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
 export class AdminDashboardComponent implements OnInit {
   sessionId: Observable<string>;
   token: Observable<string>;
-  
+
   constructor(    private route: ActivatedRoute) { }
 
   ngOnInit() {

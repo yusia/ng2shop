@@ -37,7 +37,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
 
     onSave(prodId: number): void {
         const product = { ...this.product };
-        const method = product.id !==null? 'update' : 'create';
+        const method = product.id !== null ? 'update' : 'create';
         this.sub = this.productService[method](product).subscribe(
             savedProd => {
                 this.originalProduct = { ...savedProd };

@@ -7,7 +7,7 @@ import { OrderFormComponent } from '../order/components/order-form/order-form.co
 import { OrderService } from './services/order.service';
 import { CoreModule } from 'src/app/core/core.module';
 @NgModule({
-    imports: [CommonModule, FormsModule, SharedModule,CoreModule],
+    imports: [CommonModule, FormsModule, SharedModule, CoreModule],
     declarations: [OrderFormComponent],
     providers: [OrderService],
     exports: [OrderFormComponent]

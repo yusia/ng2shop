@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
 
   products: Observable<Array<ProductModel>>;
   constructor(private productsService: ProductService,
-    private router: Router, private cartService: CartService) { }
+              private router: Router, private cartService: CartService) { }
 
   ngOnInit() {
     this.products = this.productsService.getProducts();
@@ -27,7 +27,7 @@ export class ProductListComponent implements OnInit {
     this.cartService.buy(prod);
   }
   onDetails(prodId: number): void {
-    const link = ['/details',prodId];
+    const link = ['/details', prodId];
     this.router.navigate(link);
   }
 

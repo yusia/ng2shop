@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable,of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ProductModel } from '../models/product.model';
 import { ProductService } from '../service/products.service';
 import { map, delay, finalize, catchError, take } from 'rxjs/operators';
@@ -18,7 +18,7 @@ export class ProductResolveGuard implements Resolve<ProductModel> {
     console.log('Resolve Guard is called');
 
     if (!route.paramMap.has('productID')) {
-      return of(new ProductModel(null,null, '',0,Size.unknown,0));
+      return of(new ProductModel(null, null, '', 0, Size.unknown, 0));
     }
 
     const id = +route.paramMap.get('productID');
