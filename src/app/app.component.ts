@@ -3,7 +3,7 @@ import { Component, ViewChild, AfterViewInit, ElementRef, OnInit } from '@angula
 import { ProductModel } from './feature/product/models/product.model';
 import { Router, RouterOutlet } from '@angular/router';
 import { CartService } from './feature/cart/services/cart.service';
-import { CustomPreloadingStrategyService } from './feature/core/custom-preloading-strategy.service';
+import { CustomPreloadingStrategyService } from './core/custom-preloading-strategy.service';
 
 @Component({
   selector: 'app-root',

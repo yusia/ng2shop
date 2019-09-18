@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { AboutComponent, PathNotFoundComponent } from './layout';
 import { CartComponent } from './feature/cart/cart.component';
-import { CustomPreloadingStrategyService } from './feature/core/custom-preloading-strategy.service';
+import { CustomPreloadingStrategyService } from './core/custom-preloading-strategy.service';
 import { OrderFormComponent } from './feature/order/components/order-form/order-form.component';
 import { LoginComponent } from './layout/components/login/login.component';
-import { AuthGuard } from './feature/core/guard/auth.guard';
+import { AuthGuard } from './core/guard/auth.guard';
 import { AdminComponent } from './feature/admin/admin.component';
 
 const extraOptions: ExtraOptions = {

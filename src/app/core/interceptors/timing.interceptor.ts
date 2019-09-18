@@ -19,8 +19,9 @@ export class TimingInterceptor implements HttpInterceptor {
           const elapsed = Date.now() - started;
           const msg = `${req.method} "${req.urlWithParams}" take ${elapsed} ms.`;
           console.log(msg);
-          return event;
+
         }
+        return event;
       })
     )
   }
