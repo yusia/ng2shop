@@ -62,3 +62,4 @@ routes: cart
 - changed productService for using http
 - fix updating admin/productlist after edit
 -  added timing interceptor which calculate time for add request
+- added reading appconfig from file and local storage

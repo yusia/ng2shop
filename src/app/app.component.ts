@@ -4,6 +4,7 @@ import { ProductModel } from './feature/product/models/product.model';
 import { Router, RouterOutlet } from '@angular/router';
 import { CartService } from './feature/cart/services/cart.service';
 import { CustomPreloadingStrategyService } from './core/custom-preloading-strategy.service';
+import { ConfigOptionsService } from './core/services/config-options.service';
 
 @Component({
   selector: 'app-root',
@@ -17,14 +18,16 @@ export class AppComponent implements OnInit {
   constructor(private cartService: CartService,
     private router: Router,
     private preloadingStrategy: CustomPreloadingStrategyService,
+    private appSettingsService: ConfigOptionsService
   ) {
   }
   ngOnInit() {
+    this.appSettingsService.loadAppConfig();
+
     console.log(
       `Preloading Modules: `,
       this.preloadingStrategy.preloadedModules
     );
-  //  this.setPageTitles(); stop subcripion for example with activate
 
   }
   ngDoCheck() {
