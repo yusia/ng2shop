@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { OrderModule } from './feature/order/order.module';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './core/interceptors';
+import { RootStoreModule } from './core/@ngrx/root-store.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { httpInterceptorProviders } from './core/interceptors';
     SharedModule,
     OrderModule,
     HttpClientModule,
+    RootStoreModule,
 
     AppRoutingModule,
 
@@ -42,6 +44,6 @@ export class AppModule {
       typeof value === 'function' ? value.name : value;
 
     console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
-}
+  }
 
 }

@@ -3,6 +3,7 @@ import { Size } from '../../product/models/Size.enum';
 
 
 export class CartModel implements IProduct {
+  id: number;
   constructor(
     public name: string,
     public description: string,

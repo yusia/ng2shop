@@ -11,16 +11,16 @@ import { ConfigOptionsService } from './core/services/config-options.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, DoCheck, AfterViewInit {
-  @ViewChild('appTitle') appTitle: ElementRef;
+export class AppComponent implements OnInit, DoCheck {
+ // @ViewChild('appTitle') appTitle: ElementRef;
   count = 0;
 
   constructor(private cartService: CartService,
-              private router: Router,
-              private preloadingStrategy: CustomPreloadingStrategyService,
-              private appSettingsService: ConfigOptionsService
-  ) {
-  }
+    private router: Router,
+    private preloadingStrategy: CustomPreloadingStrategyService,
+    private appSettingsService: ConfigOptionsService
+  ) { }
+
   ngOnInit() {
     this.appSettingsService.loadAppConfig();
 
@@ -41,9 +41,6 @@ export class AppComponent implements OnInit, DoCheck, AfterViewInit {
     console.log('Deactivated Component', $event, routerOutlet);
   }
 
-  ngAfterViewInit() {
-    this.appTitle.nativeElement.innerHTML = 'Friend!';
-  }
   onBuy(prod: ProductModel): void {
     this.cartService.buy(prod);
     this.count = this.cartService.getCount();
