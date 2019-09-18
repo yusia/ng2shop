@@ -12,6 +12,7 @@ import { LayoutModule } from './layout/layout.module';
 import { Router } from '@angular/router';
 import { OrderModule } from './feature/order/order.module';
 import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './core/interceptors';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

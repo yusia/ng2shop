@@ -61,3 +61,4 @@ routes: cart
 - added db.json with products
 - changed productService for using http
 - fix updating admin/productlist after edit
+-  added timing interceptor which calculate time for add request
