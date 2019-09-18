@@ -8,24 +8,23 @@ const orderList: OrderModel[] = [
 @Injectable()
 export class OrderService {
     constructor(
-        private localStorage:LocalStorageService) {
+        private localStorage: LocalStorageService) {
     }
 
     saveOrder(order: OrderModel) {
         // orderList.push(order);
-        
-        let list:OrderModel[]=this.localStorage.getItem("orders") ;
-        if(list){
+
+        let list: OrderModel[] = this.localStorage.getItem('orders') ;
+        if (list) {
             list.push(order);
+        } else {
+            list = [order];
         }
-        else{
-            list=[order];
-        }
-        this.localStorage.setItem("orders", list);
+        this.localStorage.setItem('orders', list);
     }
 
     getOrders(): OrderModel[] {
-        let list:OrderModel[]=this.localStorage.getItem("orders") ;
+        const list: OrderModel[] = this.localStorage.getItem('orders') ;
         return list ;
     }
 

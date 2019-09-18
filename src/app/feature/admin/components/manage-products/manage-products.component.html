@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products |async">
+    <tr *ngFor="let product of products$ |async">
       <th scope="row">{{product.id}}</th>
       <td>{{product.name}}</td>
       <td>{{product.price}}</td>
@@ -21,5 +21,3 @@
     </tr>
   </tbody>
 </table>
-
-<router-outlet></router-outlet>

@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "11Birman Cat 13",
+      "description": "With her marvelous, social personality, the Birman doesn’t like being the only animal in the house. She is active and playful but quiet if you are busy.",
+      "price": 12166,
+      "category": "medium",
+      "count": 2
+    },
+    {
+      "id": 2,
+      "name": "43333Siamese Cat Breed",
+      "description": "Siamese Cats are incredibly social, intelligent and vocal—they’ll talk to anyone who wants to listen, and even those who don’t.",
+      "price": 888,
+      "category": "medium",
+      "count": 2
+    },
+    {
+      "id": 3,
+      "name": "Toyger Cat1",
+      "description": "With her beautiful bold stripes and powerful body, the Toyger looks like a jungle tiger",
+      "price": 999,
+      "category": "medium",
+      "count": 2
+    },
+    {
+      "id": 4,
+      "name": "Turkish Angora",
+      "description": "the Turkish Angora has a soft, silky coat on a slender, finely boned frame with a full, tapering tail. ",
+      "price": 235,
+      "category": "medium",
+      "count": 2
+    }
+  ]
+}

@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class OrderByPipe implements PipeTransform {
 
   transform(messArray: any[], value?): any {
-    let ordered: any[];
  // get the first element
 
     let orderByValue = value;
@@ -14,9 +13,7 @@ export class OrderByPipe implements PipeTransform {
 
  // check if exclamation point
 
-    if (orderByValue.charAt(0) == '!') {
-
-   // reverse the array
+    if (orderByValue.charAt(0) === '!') {
 
    byVal = -1;
    orderByValue = orderByValue.substring(1);

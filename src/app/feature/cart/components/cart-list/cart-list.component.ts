@@ -17,7 +17,7 @@ export class CartListComponent implements OnInit, DoCheck {
   sortOption: string;
   sotringOptions: Array<string>;
   constructor(public cartService: CartService,
-    private router: Router) {
+              private router: Router) {
   }
   ngDoCheck() {
     this.count = this.cartService.getCount();

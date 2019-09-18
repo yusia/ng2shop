@@ -57,3 +57,9 @@ routes: cart
 - added route /order - which save order in localStorage
 - manage-order - get Orders from local storage
 - added canLoad guard for admin and lazy loading
+###[6.0.0]
+- added db.json with products
+- changed productService for using http
+- fix updating admin/productlist after edit
+-  added timing interceptor which calculate time for add request
+- added reading appconfig from file and local storage

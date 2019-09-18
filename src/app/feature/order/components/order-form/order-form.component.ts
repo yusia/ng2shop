@@ -17,7 +17,7 @@ export class OrderFormComponent implements OnInit {
     private orderService: OrderService) { }
 
   ngOnInit() {
-    let products = this.cartService.getProductsInCart();
+    const products = this.cartService.getProductsInCart();
     this.total = this.cartService.getTotalSum();
     this.order = new OrderModel(products);
 

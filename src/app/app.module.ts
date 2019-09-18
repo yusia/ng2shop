@@ -11,12 +11,14 @@ import { LayoutModule } from './layout/layout.module';
 
 import { Router } from '@angular/router';
 import { OrderModule } from './feature/order/order.module';
+import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './core/interceptors';
 
 @NgModule({
   declarations: [
     AppComponent,
     WaySizeDirective,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -26,13 +28,15 @@ import { OrderModule } from './feature/order/order.module';
     CoreModule,
     SharedModule,
     OrderModule,
+    HttpClientModule,
+
     AppRoutingModule,
-    
+
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor(router: Router) {
     const replacer = (key: string, value: any): string =>
       typeof value === 'function' ? value.name : value;

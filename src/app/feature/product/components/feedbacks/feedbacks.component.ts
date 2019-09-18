@@ -11,7 +11,7 @@ export class FeedbacksComponent implements OnInit {
   feedbacks: string[];
 
   constructor(public feedbacksService: ProductFeedbackService,
-    private route: ActivatedRoute
+              private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
