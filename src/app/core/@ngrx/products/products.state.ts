@@ -1,7 +1,8 @@
 import { IProduct, ProductModel } from 'src/app/feature/product/models';
 import { createEntityAdapter, EntityState, EntityAdapter } from '@ngrx/entity';
 
-export interface ProductsState extends EntityState<IProduct>{
+export interface ProductsState {
+  entities: Readonly<{ [id: number]: IProduct }>;
   readonly loading: boolean;
   readonly loaded: boolean;
   readonly error: Error | string;
@@ -12,20 +13,11 @@ export function selectProductId(Product: IProduct): number {
   return Product.id;
 }
 
-// export function sortProductsByAction(Product1: IProduct, Product2: IProduct): number {
-//   return Product1.action.localeCompare(Product2.action);
-// }
-
-export const adapter: EntityAdapter<IProduct> = createEntityAdapter<IProduct>({
-  selectId: selectProductId,
-//  sortComparer: sortProductsByAction
-});
-
-
-export const intitialProductsState: ProductsState = adapter.getInitialState({
+export const intitialProductsState: ProductsState = {
+  entities: {},
   loading: false,
   loaded: false,
   error: null
-});
+};
 
 

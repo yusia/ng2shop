@@ -6,9 +6,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from './../../../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 
+
 import { StoreRouterConnectingModule, RouterState } from '@ngrx/router-store';
 import { routerReducers, CustomSerializer, RouterEffects } from './router';
 import { ProductsStoreModule } from './products/products-store.module';
+import { ProductsEffects } from "./products/ProductsEffects";
 
 
 
@@ -26,13 +28,14 @@ import { ProductsStoreModule } from './products/products-store.module';
         // set false
         strictActionSerializability: false
       }
-    }),
+    }
+    ),
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router',
       routerState: RouterState.Minimal
       // serializer: CustomSerializer // has a priority over routerState
     }),
-    EffectsModule.forRoot([RouterEffects]),
+    EffectsModule.forRoot([RouterEffects    ]),
     // Instrumentation must be imported after importing StoreModule (config is optional) 
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     ProductsStoreModule

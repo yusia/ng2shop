@@ -1,6 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { adapter, ProductsState, intitialProductsState } from './products.state';
+import { ProductsState, intitialProductsState } from './products.state';
 import * as ProductActions from './products.actions';
+import { IProduct } from 'src/app/feature/product/models';
 
 const reducer = createReducer(
     intitialProductsState,
@@ -11,9 +12,25 @@ const reducer = createReducer(
             loading: true
         };
     }),
-    on(ProductActions.getProductsSuccess, (state, { products }) => {
+    on(ProductActions.getProductsSuccess, (state, props) => {
         console.log(' GET_PRODUCTS_SUCCEESS action being handled!');
-        return adapter.addAll(products, { ...state, loading: false, loaded: true });
+        const products = [...props.products];
+        const entities = products.reduce(
+            (result: { [id: number]: IProduct }, product: IProduct) => {
+              return {
+                ...result,
+                [product.id]: product
+              };
+            },
+            {
+              ...state.entities
+            }
+          );    return {
+            ...state,
+            loading: false,
+            loaded: false,
+            entities
+        };
     }),
     on(ProductActions.getProductsError, (state, props) => {
         console.log(' GET_PRODUCTS_ERROR action being handled!');

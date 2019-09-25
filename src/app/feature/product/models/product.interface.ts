@@ -5,5 +5,6 @@ export interface IProduct {
      name: string;
      description: string;
      price: number;
-     category?: Size;
+     category: Size;
+     count: number
 }

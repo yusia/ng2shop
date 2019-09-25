@@ -65,4 +65,4 @@ routes: cart
 - added reading appconfig from file and local storage
 ###[7.0.0]
 -added appstate,store, product states, reducer, action
--
+- added selectors,effects, entites 

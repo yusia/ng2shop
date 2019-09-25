@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { productsReducer } from './products.reducer';
 import { EffectsModule } from '@ngrx/effects';
-//import { ProductsEffects } from './products.effects';
+import { ProductsEffects } from "./ProductsEffects";
+import { ProductService } from 'src/app/feature/product/service/products.service';
 
 
 @NgModule({
@@ -12,8 +13,8 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     CommonModule,
     StoreModule.forFeature('products', productsReducer),
-  //  EffectsModule.forFeature([ProductsEffects])
-
-  ]
+    EffectsModule.forFeature([ProductsEffects])
+  ],
+  providers: [ProductService]
 })
 export class ProductsStoreModule { }
