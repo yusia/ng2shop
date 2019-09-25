@@ -10,6 +10,7 @@ import { AppState, selectProducts } from 'src/app/core/@ngrx';
 import { Store, select } from '@ngrx/store';
 import { ProductsState } from 'src/app/core/@ngrx/products/products.state';
 import * as ProductActions from 'src/app/core/@ngrx/products/products.actions'
+import * as RouterActions from 'src/app/core/@ngrx/router/router.actions';
 
 @Component({
   selector: 'app-manage-products',
@@ -37,11 +38,17 @@ export class ManageProductsComponent implements OnInit {
   }
 
   onEdit(id: number) {
-    const link = ['/admin/managingproducts/edit', id];
-    this.router.navigate(link);
+    const link = ['/admin/managingproducts/edit', ];
+  
+    this.store.dispatch(RouterActions.go({
+      path: link,
+      queryParams:[{"productId":id}]
+    }));
   }
   onAdd(id: number) {
     const link = ['/admin/managingproducts/add'];
-    this.router.navigate(link);
+    this.store.dispatch(RouterActions.go({
+      path: link
+    }));
   }
 }

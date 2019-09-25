@@ -6,6 +6,9 @@ import { ActivatedRoute, Router, UrlTree } from '@angular/router';
 import { ProductService } from '../../service/products.service';
 import { pluck } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { AppState, selectSelectedProductByUrl } from 'src/app/core/@ngrx';
+import * as RouterActions from 'src/app/core/@ngrx/router/router.actions';
 
 @Component({
     templateUrl: './product-form.component.html',
@@ -20,12 +23,15 @@ export class ProductFormComponent implements OnInit, OnDestroy {
         private location: Location,
         private router: Router,
         private activeRouter: ActivatedRoute,
-        private productService: ProductService) { }
+        private productService: ProductService,
+        private store: Store<AppState>) { }
 
     ngOnInit() {
-        this.activeRouter.data.pipe(pluck('product')).subscribe((product: ProductModel) => {
-            this.product = { ...product };
-        });
+        this.sub = this.store.pipe(select(selectSelectedProductByUrl))
+        .subscribe(product => this.product = {...product});
+        // this.activeRouter.data.pipe(pluck('product')).subscribe((product: ProductModel) => {
+        //     this.product = { ...product };
+        // });
 
     }
 
@@ -49,6 +55,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     }
 
     onGoBack() {
-        this.location.back();
+        this.store.dispatch(RouterActions.back());
+        //this.location.back();
     }
 }

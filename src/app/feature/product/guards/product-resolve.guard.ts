@@ -5,36 +5,39 @@ import { ProductModel } from '../models/product.model';
 import { ProductService } from '../service/products.service';
 import { map, delay, finalize, catchError, take } from 'rxjs/operators';
 import { Size } from '../models/Size.enum';
+import { Store,select } from '@ngrx/store';
+import { AppState, selectSelectedProductByUrl } from 'src/app/core/@ngrx';
+import * as RouterActions from 'src/app/core/@ngrx/router/router.actions';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductResolveGuard implements Resolve<ProductModel> {
   constructor(
     private productService: ProductService,
-    private router: Router
+    private store: Store<AppState>,
+    private router: Router,
   ) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<ProductModel | null> {
     console.log('Resolve Guard is called');
 
-    if (!route.paramMap.has('productID')) {
-      return of(new ProductModel(null, null, '', 0, Size.unknown, 0));
-    }
-
-    const id = +route.paramMap.get('productID');
-
-    return this.productService.getProduct(id).pipe(
+    return this.store.pipe(
+      select(selectSelectedProductByUrl),
       map((product: ProductModel) => {
         if (product) {
           return product;
         } else {
-          this.router.navigate(['/products']);
+          this.store.dispatch(RouterActions.go({
+            path: ['/products']
+          }));
           return null;
         }
       }),
       take(1),
-      catchError(() => {
-        this.router.navigate(['/products']);
+      catchError((error) => {
+        this.store.dispatch(RouterActions.go({
+          path: ['/products']
+        }));
         // catchError MUST return observable
         return of(null);
       })
