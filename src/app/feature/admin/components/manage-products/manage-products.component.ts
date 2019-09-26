@@ -38,11 +38,11 @@ export class ManageProductsComponent implements OnInit {
   }
 
   onEdit(id: number) {
-    const link = ['/admin/managingproducts/edit', ];
+    const link = ['/admin/managingproducts/edit', id];
   
     this.store.dispatch(RouterActions.go({
       path: link,
-      queryParams:[{"productId":id}]
+      queryParams:[{"id":id}]
     }));
   }
   onAdd(id: number) {

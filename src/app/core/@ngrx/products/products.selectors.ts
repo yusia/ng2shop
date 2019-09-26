@@ -27,11 +27,11 @@ export const selectSelectedProductByUrl = createSelector(
   selectProductsEntitites,
   selectRouterState,
   (products, router): ProductModel => {
-    const productId = router.state.params.productId;
+    const productId =router.state.root.children[0].params.productID;
     if (productId && products) {
       return products[productId];
     } else {
-      new ProductModel(null, null, '', 0, Size.unknown, 0);
+      return new ProductModel(null, null, '', 0, Size.unknown, 0);
     }
   }
 );
