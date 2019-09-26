@@ -63,3 +63,7 @@ routes: cart
 - fix updating admin/productlist after edit
 -  added timing interceptor which calculate time for add request
 - added reading appconfig from file and local storage
+###[7.0.0]
+-added appstate,store, product states, reducer, action
+- added selectors,effects, entites 
+- added selector By prodId and store go (back, add, edit product )in product-resolve guard and in product-form component

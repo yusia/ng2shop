@@ -5,6 +5,9 @@ import { ProductService } from '../../service/products.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CartService } from 'src/app/feature/cart/services/cart.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/core/@ngrx';
+ import * as RouterActions from 'src/app/core/@ngrx/router/router.actions';
 
 @Component({
   selector: 'app-product-list',
@@ -17,7 +20,8 @@ export class ProductListComponent implements OnInit {
 
   products: Observable<Array<ProductModel>>;
   constructor(private productsService: ProductService,
-              private router: Router, private cartService: CartService) { }
+              private router: Router, private cartService: CartService,
+              private store: Store<AppState>) { }
 
   ngOnInit() {
     this.products = this.productsService.getProducts();
@@ -28,7 +32,10 @@ export class ProductListComponent implements OnInit {
   }
   onDetails(prodId: number): void {
     const link = ['/details', prodId];
-    this.router.navigate(link);
+    this.store.dispatch(RouterActions.go({
+      path: link
+    }));
+  //  this.router.navigate(link);
   }
 
   onDisplayFeedbacks(prodId: number): void {
