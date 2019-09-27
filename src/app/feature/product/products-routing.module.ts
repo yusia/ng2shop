@@ -7,23 +7,27 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 const routes: Routes = [
   {
     path: 'products',
-    component: ProductListComponent,
-
-  }, {
+    component: ProductListComponent
+  },
+  {
     path: 'details/:productID',
     resolve: {
       product: ProductResolveGuard
     },
-    component: ProductDetailsComponent
-  }, {// не работает =(())
-    path: 'feedbacks/:prodID',
-    component: FeedbacksComponent,
-    outlet: 'feedbacks'
-},
+    component: ProductDetailsComponent,
+    children: [
+      {
+        // не работает =(())
+        path: 'feedbacks/:prodID',
+        component: FeedbacksComponent,
+        outlet: 'feedbacks'
+      }
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProductsRoutingModule { }
+export class ProductsRoutingModule {}

@@ -1,11 +1,11 @@
 <div *ngFor="let product of products |async" class="panel panel-default" style="width: 18rem;">
-    
+
     <app-product [product]="product"></app-product>
 
     <ul class="list-group">
         <li class="list-group-item">
             <div class="float-left">{{product.price|currency:locale}} </div>
-            <a href="#" class="btn btn-third float-right" (click)="onDetails(product.id)">Details</a>
+            <a class="btn btn-third float-right" (click)="onDetails(product.id)">Details</a>
             <button href="#" class="btn btn-third float-right" [disabled]="product.count===0"
                 (click)="onBuy(product)">Buy</button>
         </li>

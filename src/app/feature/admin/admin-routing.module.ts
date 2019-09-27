@@ -4,7 +4,7 @@ import { AdminComponent } from './admin.component';
 import { ManageOrdersComponent, ManageProductsComponent, AdminDashboardComponent } from '.';
 import { ProductResolveGuard } from '../product/guards/product-resolve.guard';
 import { ProductFormComponent } from '../product/components/product-form/product-form.component';
-import { AuthGuard } from '../core/guard/auth.guard';
+import { AuthGuard } from './../../core/guard/auth.guard';
 const routes: Routes = [
   {
     path: '',
